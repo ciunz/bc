@@ -32,15 +32,15 @@ namespace DAL
 
             return hasil.ToList();
         }
-        
-        public TopLink GetSingleLink(string url)
+
+        public TopLink GetSingleLink(int id)
         {
             dbDataContext db = new dbDataContext();
 
             //TopLink top = new TopLink();
 
             var hasil = (from baris in db.TopLinks
-                         where baris.links == url
+                         where baris.idLink == id
                         select baris).SingleOrDefault();
 
             return hasil;
@@ -66,12 +66,12 @@ namespace DAL
             }
         }
 
-        public bool DeleteLink(string name)
+        public bool DeleteLink(int id)
         {
             dbDataContext db = new dbDataContext();
 
             var hapus = (from baris in db.TopLinks
-                         where baris.name == name
+                         where baris.idLink == id
                          select baris).SingleOrDefault();
             db.TopLinks.DeleteOnSubmit(hapus);
 
@@ -90,11 +90,12 @@ namespace DAL
         {
             dbDataContext db = new dbDataContext();
             var update = (from baris in db.TopLinks
-                          where baris.name == top.name
+                          where baris.idLink == top.idLink
                           select baris).SingleOrDefault();
 
             if (update != null)
             {
+                update.idLink = top.idLink;
                 update.name = top.name;
                 update.links = top.links;
                 update.status = top.status;

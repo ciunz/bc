@@ -54,6 +54,7 @@
     <Content Include="AddTopLink.aspx" />
     <Content Include="AllProgram.aspx" />
     <Content Include="AllUser.aspx" />
+    <Content Include="ChgPwd.aspx" />
     <Content Include="css\owl.carousel.css" />
     <Content Include="css\productviewgallery.css" />
     <Content Include="css\slider.css" />
@@ -197,6 +198,13 @@
     </Compile>
     <Compile Include="AllUser.aspx.designer.cs">
       <DependentUpon>AllUser.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ChgPwd.aspx.cs">
+      <DependentUpon>ChgPwd.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ChgPwd.aspx.designer.cs">
+      <DependentUpon>ChgPwd.aspx</DependentUpon>
     </Compile>
     <Compile Include="details.aspx.cs">
       <DependentUpon>details.aspx</DependentUpon>

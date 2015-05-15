@@ -42,6 +42,9 @@ namespace DAL
     partial void InsertMsProgram(MsProgram instance);
     partial void UpdateMsProgram(MsProgram instance);
     partial void DeleteMsProgram(MsProgram instance);
+    partial void InsertTopLink(TopLink instance);
+    partial void UpdateTopLink(TopLink instance);
+    partial void DeleteTopLink(TopLink instance);
     #endregion
 		
 		public dbDataContext() : 
@@ -82,14 +85,6 @@ namespace DAL
 			}
 		}
 		
-		public System.Data.Linq.Table<TopLink> TopLinks
-		{
-			get
-			{
-				return this.GetTable<TopLink>();
-			}
-		}
-		
 		public System.Data.Linq.Table<MsCustomer> MsCustomers
 		{
 			get
@@ -111,6 +106,14 @@ namespace DAL
 			get
 			{
 				return this.GetTable<MsProgram>();
+			}
+		}
+		
+		public System.Data.Linq.Table<TopLink> TopLinks
+		{
+			get
+			{
+				return this.GetTable<TopLink>();
 			}
 		}
 	}
@@ -245,87 +248,6 @@ namespace DAL
 			if ((this.PropertyChanged != null))
 			{
 				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
-			}
-		}
-	}
-	
-	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.TopLink")]
-	public partial class TopLink
-	{
-		
-		private string _name;
-		
-		private string _links;
-		
-		private int _status;
-		
-		private System.Nullable<int> _level;
-		
-		public TopLink()
-		{
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_name", DbType="VarChar(50) NOT NULL", CanBeNull=false)]
-		public string name
-		{
-			get
-			{
-				return this._name;
-			}
-			set
-			{
-				if ((this._name != value))
-				{
-					this._name = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_links", DbType="VarChar(MAX) NOT NULL", CanBeNull=false)]
-		public string links
-		{
-			get
-			{
-				return this._links;
-			}
-			set
-			{
-				if ((this._links != value))
-				{
-					this._links = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_status", DbType="Int NOT NULL")]
-		public int status
-		{
-			get
-			{
-				return this._status;
-			}
-			set
-			{
-				if ((this._status != value))
-				{
-					this._status = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[level]", Storage="_level", DbType="Int")]
-		public System.Nullable<int> level
-		{
-			get
-			{
-				return this._level;
-			}
-			set
-			{
-				if ((this._level != value))
-				{
-					this._level = value;
-				}
 			}
 		}
 	}
@@ -1155,6 +1077,164 @@ namespace DAL
 		{
 			this.SendPropertyChanging();
 			entity.MsProgram = null;
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.TopLink")]
+	public partial class TopLink : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private int _idLink;
+		
+		private string _name;
+		
+		private string _links;
+		
+		private int _status;
+		
+		private System.Nullable<int> _level;
+		
+    #region Extensibility Method Definitions
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnidLinkChanging(int value);
+    partial void OnidLinkChanged();
+    partial void OnnameChanging(string value);
+    partial void OnnameChanged();
+    partial void OnlinksChanging(string value);
+    partial void OnlinksChanged();
+    partial void OnstatusChanging(int value);
+    partial void OnstatusChanged();
+    partial void OnlevelChanging(System.Nullable<int> value);
+    partial void OnlevelChanged();
+    #endregion
+		
+		public TopLink()
+		{
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_idLink", DbType="Int NOT NULL", IsPrimaryKey=true)]
+		public int idLink
+		{
+			get
+			{
+				return this._idLink;
+			}
+			set
+			{
+				if ((this._idLink != value))
+				{
+					this.OnidLinkChanging(value);
+					this.SendPropertyChanging();
+					this._idLink = value;
+					this.SendPropertyChanged("idLink");
+					this.OnidLinkChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_name", DbType="VarChar(50) NOT NULL", CanBeNull=false)]
+		public string name
+		{
+			get
+			{
+				return this._name;
+			}
+			set
+			{
+				if ((this._name != value))
+				{
+					this.OnnameChanging(value);
+					this.SendPropertyChanging();
+					this._name = value;
+					this.SendPropertyChanged("name");
+					this.OnnameChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_links", DbType="VarChar(MAX) NOT NULL", CanBeNull=false)]
+		public string links
+		{
+			get
+			{
+				return this._links;
+			}
+			set
+			{
+				if ((this._links != value))
+				{
+					this.OnlinksChanging(value);
+					this.SendPropertyChanging();
+					this._links = value;
+					this.SendPropertyChanged("links");
+					this.OnlinksChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_status", DbType="Int NOT NULL")]
+		public int status
+		{
+			get
+			{
+				return this._status;
+			}
+			set
+			{
+				if ((this._status != value))
+				{
+					this.OnstatusChanging(value);
+					this.SendPropertyChanging();
+					this._status = value;
+					this.SendPropertyChanged("status");
+					this.OnstatusChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[level]", Storage="_level", DbType="Int")]
+		public System.Nullable<int> level
+		{
+			get
+			{
+				return this._level;
+			}
+			set
+			{
+				if ((this._level != value))
+				{
+					this.OnlevelChanging(value);
+					this.SendPropertyChanging();
+					this._level = value;
+					this.SendPropertyChanged("level");
+					this.OnlevelChanged();
+				}
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
 		}
 	}
 }

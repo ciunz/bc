@@ -8,14 +8,6 @@
       <Column Name="biaya" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
     </Type>
   </Table>
-  <Table Name="dbo.TopLink" Member="TopLinks">
-    <Type Name="TopLink">
-      <Column Name="name" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
-      <Column Name="links" Type="System.String" DbType="VarChar(MAX) NOT NULL" CanBeNull="false" />
-      <Column Name="status" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
-      <Column Name="[level]" Member="level" Type="System.Int32" DbType="Int" CanBeNull="true" />
-    </Type>
-  </Table>
   <Table Name="dbo.MsCustomer" Member="MsCustomers">
     <Type Name="MsCustomer">
       <Column Name="idCustomer" Type="System.String" DbType="Char(10) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
@@ -54,6 +46,15 @@
       <Column Name="img" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
       <Column Name="technology" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
       <Association Name="MsProgram_MsPenjualan" Member="MsPenjualans" ThisKey="idProgram" OtherKey="idProgram" Type="MsPenjualan" />
+    </Type>
+  </Table>
+  <Table Name="dbo.TopLink" Member="TopLinks">
+    <Type Name="TopLink">
+      <Column Name="idLink" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="name" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="links" Type="System.String" DbType="VarChar(MAX) NOT NULL" CanBeNull="false" />
+      <Column Name="status" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="[level]" Member="level" Type="System.Int32" DbType="Int" CanBeNull="true" />
     </Type>
   </Table>
 </Database>
