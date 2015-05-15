@@ -46,5 +46,15 @@ namespace BAL
             return dal.getLastID();
         }
 
+        public MsProgramBAL getProgramById(string id)
+        {
+            ProgramDAL dal = new ProgramDAL();
+            MsProgram pro = new MsProgram();
+            MsProgramBAL probal = new MsProgramBAL();
+            pro = dal.GetProgramById(id);
+            probal = probal.ConvertToMsProgramBAL(pro);
+            return probal;
+        }
+
     }
 }

@@ -14,16 +14,17 @@ namespace UI
         protected void Page_Load(object sender, EventArgs e)
         {
             string id = Request.QueryString["id"];
-            SingleProgramBAL b = new SingleProgramBAL(id);
+            ProgramBAL probal = new ProgramBAL();
+            MsProgramBAL b = new MsProgramBAL();
             Session["produk"] = b;
             //User Autentifikasi 
             if (id != null)
             {            
-                string title = b.getTitle(id);
+                string title = b.title;
                 Label1.Text = "<h3>" + title + "</h3>";
-                keterangan.InnerText = b.getDesc(id);
-                ukuran.InnerText = b.getSize(id) + " MB";
-                gambar.Src = "/" + b.getPic(id);
+                keterangan.InnerText = b.descr;
+                ukuran.InnerText = b.size + " MB";
+                gambar.Src = "/" + b.img;
                 gambar.Alt = title;
             }
             else
@@ -36,13 +37,19 @@ namespace UI
         protected void Button1_Click(object sender, EventArgs e)
         {
             string id = Request.QueryString["id"];
-            MsProgramBAL b = new MsProgramBAL();          
-            b = (MsProgramBAL) Session["produk"];
+            ProgramBAL probal = new ProgramBAL();
+            MsProgramBAL b = new MsProgramBAL();
+            b = probal.getProgramById(id);
 
-            MsPenjualanBAL penj = new MsPenjualanBAL();
-            penj = (MsPenjualanBAL)Session["order"];
-            penj.detail += b.idProgram+";";
-            Session["order"] = penj;
+            List<string> order = new List<string>();
+            if (Session["order"] != null)
+            {
+                order = (List<string>)Session["order"];
+            }           
+            order.Add(b.idProgram);
+            Session["order"] = order;
+
+            Response.Redirect("AllProgram.aspx");
         }
     }
 }

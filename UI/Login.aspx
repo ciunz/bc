@@ -26,7 +26,7 @@
 		     <!-- Owl Carousel Assets -->
 		    <!-- Prettify -->
 		    <script src="js/owl.carousel.js"></script>
-		        <script>
+		        <script type="text/javascript">
 		    $(document).ready(function() {
 		
 		      $("#owl-demo").owlCarousel({
@@ -55,27 +55,6 @@
 		           });
 		       });
 			</script>
-
-<style type="text/css">
-.buttonLogin{
-	margin-top:10px;
-	font-family: 'Source Sans Pro', sans-serif;
-	-webkit-appearance: none;
-	cursor:pointer;
-	color: #ffffff;
-	background: #3CC395;
-	border:none;
-	outline:none;
-	display: inline-block;
-	text-transform: uppercase;
-	padding: 12px 38px;
-	font-size: 0.875em;
-	-webkit-transition: all 0.3s ease-in-out;
-	-moz-transition: all 0.3s ease-in-out;
-	-o-transition: all 0.3s ease-in-out;
-	transition: all 0.3s ease-in-out;
-}
-    </style>
 </head>
 <body>
 
@@ -89,10 +68,10 @@
 		</div>
 		<div class="h_icon">
 		<ul class="icon1 sub-icon1">
-			<li>
+			<li><a class="active-icon c1" href="#"><i runat="server" id="shop"></i></a>
 				<ul class="sub-icon1 list">
-					<li><h3>shopping cart empty</h3><a href=""></a></li>
-					<li><p>if items in your wishlit are missing, <a href="contact.html">contact us</a> to view them</p></li>
+					<li><h3>User Login</h3></li>
+					<li><p runat="server" id="user"></p></li>
 				</ul>
 			</li>
 		</ul>
@@ -159,7 +138,7 @@
                             <span>
                                 <label>
                                     Password</label></span> <span>
-                                        <input name="Password" type="text" class="textbox" runat="server" id="pwds" /></span>
+                                        <input name="Password" type="password" class="textbox" runat="server" id="pwds" /></span>
                         </div>
                         <div>
                             <span>

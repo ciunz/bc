@@ -12,6 +12,12 @@ namespace UI
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            
+            shop.InnerHtml = Convert.ToString(Application["shopper"]);
+            if (Convert.ToString(Application["shopper"]) == null)
+            { user.InnerText ="0"; }
+            else
+            { user.InnerText = Convert.ToString(Application["shopper"]); }
             menuAtas.InnerHtml = "<li>&nbsp;</li>";
             menuMobile.InnerHtml = "<li>&nbsp;</li>";
             if (Session["username"] != null && Session["lvl"] != null)
@@ -24,9 +30,14 @@ namespace UI
         {
             string username = usr.Value;
             string pwd = pwds.Value;
-            UserBAL bal = new UserBAL();     
+            UserBAL bal = new UserBAL();
             if (bal.CekLogin(username, pwd))
             {
+                Application.Lock();
+                int shopper = Convert.ToInt32(Application["shopper"]) + 1;
+                Application["shopper"] = shopper.ToString();
+                Application.UnLock();
+
                 int lvl = bal.getLevel(username);
                 Session["username"] = username;
                 Session["lvl"] = lvl;

@@ -28,6 +28,22 @@ nav.vertical ul li{	display:block;}/* vertical menu */
 nav.horizontal ul li{	display: inline-block;}/* horizontal menu */
 img{max-width:100%;}
 /*end reset*/
+
+.cekOut
+{
+    
+  display: inline-block;
+  font-size: 1.1em;
+  background: #3CC395;
+  color: #ffffff;
+  padding: 8px 20px;
+  margin-left: 30px;
+  -webkit-transition: all 0.3s ease-in-out;
+  -moz-transition: all 0.3s ease-in-out;
+  -o-transition: all 0.3s ease-in-out;
+  transition: all 0.3s ease-in-out;
+}
+
 @font-face {
     font-family: 'bebas_neueregular';
     src:url(../fonts/BebasNeue-webfont.ttf) format('truetype');
@@ -826,6 +842,20 @@ p.para{
 	-webkit-appearance: none;
 	text-transform: capitalize;
 }
+
+.contact-form input[type="password"]{
+	font-family: 'Source Sans Pro', sans-serif;
+	background: #FFFFFF;
+	border: 1px solid #E7E7E7;
+	color: rgba(85, 81, 81, 0.84);
+	padding: 8px;
+	display: block;
+	width: 96.3333%;
+	outline: none;
+	-webkit-appearance: none;
+	text-transform: capitalize;
+}
+
 .contact-form textarea{
 	resize:none;
 	height:120px;		

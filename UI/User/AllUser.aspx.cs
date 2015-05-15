@@ -19,16 +19,16 @@ namespace UI
             int counter = 0;
             if (lb != null)
             {
-                string isi = "<div class='grids_of_3'>";
+                string isi = "<div class='grids_of_4'>";
                 foreach (MsUserBAL ub in lb)
                 {
                     //cetak
-                    isi += "<div class='grid1_of_3'>";
+                    isi += "<div class='grid1_of_4'>";
                     isi += "<a href='details.aspx?id=" + ub.idCustomer + "'>";
                     isi += "<img src='" + ub.img + "' alt=''/>";
-                    isi += "<h3>" + ub.nama + "</h3>";
+                    isi += "<h4 style='color:#777777;'>" + ub.nama + "</h4>";
                     isi += "<div class='price'>";
-                    isi += "<h4>" + ub.username + " <span>Buy</span></h4>";
+                    isi += "<h4 style='color:#777777;'>" + ub.username + " <span>View</span></h4>";
                     isi += "</div>";
                     isi += "<span class='b_btm'></span>";
                     isi += "</a>";

@@ -11,9 +11,18 @@ namespace UI
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            if (Session["username"] != null && Session["lvl"] != null)
+            {
+                Application.Lock();
+                int shopper = Convert.ToInt32(Application["shopper"]) - 1;
+                Application["shopper"] = shopper.ToString();
+                Application.UnLock();
+            }
             Session.RemoveAll();
             Session.Abandon();
             Response.Redirect("Home.aspx");
+            
+            
         }
     }
 }

@@ -8,7 +8,7 @@ namespace BAL
 {
     public class SingleProgramBAL
     {
-        MsProgram p = new MsProgram();
+        public MsProgram p = new MsProgram();
 
         public SingleProgramBAL(string id)
         {

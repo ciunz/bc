@@ -24,7 +24,7 @@ namespace UI
                     //cetak
                     isi += "<div class='grid1_of_3'>";
                     isi += "<a href='details.aspx?id=" + probal.idProgram + "'>";
-                    isi += "<img src='" + probal.img + "' alt=''/>";
+                    isi += "<img src='/" + probal.img + "' alt=''/>";
                     isi += "<h3>" + probal.title + "</h3>";
                     isi += "<div class='price'>";
                     isi += "<h4>" + probal.size + "MB <span>Buy</span></h4>";
