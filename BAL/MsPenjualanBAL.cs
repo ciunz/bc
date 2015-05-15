@@ -16,7 +16,7 @@ namespace BAL
         { get; set; }
         public string tglTrans
         { get; set; }
-        public int qty
+        public string detail
         { get; set; }
 
 
@@ -25,9 +25,8 @@ namespace BAL
             MsPenjualan jual = new MsPenjualan();
             jual.idPenjualan = b.idPenjualan;
             jual.idCustomer = b.idCustomer;
-            jual.idProgram = b.idProgram;
             jual.tglTrans = Convert.ToDateTime(b.tglTrans);
-            jual.qty = b.qty;
+            jual.detail = b.detail;
 
             return jual;
         }
@@ -37,10 +36,9 @@ namespace BAL
             MsPenjualanBAL b = new MsPenjualanBAL();
             
             b.idPenjualan = jual.idPenjualan;
-            b.idCustomer = jual.idCustomer;
-            b.idProgram = jual.idProgram;
+            b.idCustomer = jual.idCustomer;   
             b.tglTrans = Convert.ToString(jual.tglTrans);
-            b.qty = jual.qty;
+            b.detail = jual.detail;
 
             return b;
         }

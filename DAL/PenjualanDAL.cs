@@ -58,9 +58,8 @@ namespace DAL
             {
                 hasil.idPenjualan = p.idPenjualan;
                 hasil.idCustomer = p.idCustomer;
-                hasil.idProgram = p.idProgram;
                 hasil.tglTrans = p.tglTrans;
-                hasil.qty = p.qty;
+                hasil.detail = p.detail;
                 try
                 {
                     db.SubmitChanges();

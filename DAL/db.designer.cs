@@ -33,6 +33,9 @@ namespace DAL
     partial void InsertMsCD(MsCD instance);
     partial void UpdateMsCD(MsCD instance);
     partial void DeleteMsCD(MsCD instance);
+    partial void InsertTopLink(TopLink instance);
+    partial void UpdateTopLink(TopLink instance);
+    partial void DeleteTopLink(TopLink instance);
     partial void InsertMsCustomer(MsCustomer instance);
     partial void UpdateMsCustomer(MsCustomer instance);
     partial void DeleteMsCustomer(MsCustomer instance);
@@ -42,9 +45,6 @@ namespace DAL
     partial void InsertMsProgram(MsProgram instance);
     partial void UpdateMsProgram(MsProgram instance);
     partial void DeleteMsProgram(MsProgram instance);
-    partial void InsertTopLink(TopLink instance);
-    partial void UpdateTopLink(TopLink instance);
-    partial void DeleteTopLink(TopLink instance);
     #endregion
 		
 		public dbDataContext() : 
@@ -85,6 +85,14 @@ namespace DAL
 			}
 		}
 		
+		public System.Data.Linq.Table<TopLink> TopLinks
+		{
+			get
+			{
+				return this.GetTable<TopLink>();
+			}
+		}
+		
 		public System.Data.Linq.Table<MsCustomer> MsCustomers
 		{
 			get
@@ -106,14 +114,6 @@ namespace DAL
 			get
 			{
 				return this.GetTable<MsProgram>();
-			}
-		}
-		
-		public System.Data.Linq.Table<TopLink> TopLinks
-		{
-			get
-			{
-				return this.GetTable<TopLink>();
 			}
 		}
 	}
@@ -227,6 +227,164 @@ namespace DAL
 					this._biaya = value;
 					this.SendPropertyChanged("biaya");
 					this.OnbiayaChanged();
+				}
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.TopLink")]
+	public partial class TopLink : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private int _idLink;
+		
+		private string _name;
+		
+		private string _links;
+		
+		private int _status;
+		
+		private System.Nullable<int> _level;
+		
+    #region Extensibility Method Definitions
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnidLinkChanging(int value);
+    partial void OnidLinkChanged();
+    partial void OnnameChanging(string value);
+    partial void OnnameChanged();
+    partial void OnlinksChanging(string value);
+    partial void OnlinksChanged();
+    partial void OnstatusChanging(int value);
+    partial void OnstatusChanged();
+    partial void OnlevelChanging(System.Nullable<int> value);
+    partial void OnlevelChanged();
+    #endregion
+		
+		public TopLink()
+		{
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_idLink", DbType="Int NOT NULL", IsPrimaryKey=true)]
+		public int idLink
+		{
+			get
+			{
+				return this._idLink;
+			}
+			set
+			{
+				if ((this._idLink != value))
+				{
+					this.OnidLinkChanging(value);
+					this.SendPropertyChanging();
+					this._idLink = value;
+					this.SendPropertyChanged("idLink");
+					this.OnidLinkChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_name", DbType="VarChar(50) NOT NULL", CanBeNull=false)]
+		public string name
+		{
+			get
+			{
+				return this._name;
+			}
+			set
+			{
+				if ((this._name != value))
+				{
+					this.OnnameChanging(value);
+					this.SendPropertyChanging();
+					this._name = value;
+					this.SendPropertyChanged("name");
+					this.OnnameChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_links", DbType="VarChar(MAX) NOT NULL", CanBeNull=false)]
+		public string links
+		{
+			get
+			{
+				return this._links;
+			}
+			set
+			{
+				if ((this._links != value))
+				{
+					this.OnlinksChanging(value);
+					this.SendPropertyChanging();
+					this._links = value;
+					this.SendPropertyChanged("links");
+					this.OnlinksChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_status", DbType="Int NOT NULL")]
+		public int status
+		{
+			get
+			{
+				return this._status;
+			}
+			set
+			{
+				if ((this._status != value))
+				{
+					this.OnstatusChanging(value);
+					this.SendPropertyChanging();
+					this._status = value;
+					this.SendPropertyChanged("status");
+					this.OnstatusChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[level]", Storage="_level", DbType="Int")]
+		public System.Nullable<int> level
+		{
+			get
+			{
+				return this._level;
+			}
+			set
+			{
+				if ((this._level != value))
+				{
+					this.OnlevelChanging(value);
+					this.SendPropertyChanging();
+					this._level = value;
+					this.SendPropertyChanged("level");
+					this.OnlevelChanged();
 				}
 			}
 		}
@@ -616,15 +774,11 @@ namespace DAL
 		
 		private string _idCustomer;
 		
-		private string _idProgram;
-		
 		private System.DateTime _tglTrans;
 		
-		private int _qty;
+		private string _detail;
 		
 		private EntityRef<MsCustomer> _MsCustomer;
-		
-		private EntityRef<MsProgram> _MsProgram;
 		
     #region Extensibility Method Definitions
     partial void OnLoaded();
@@ -634,18 +788,15 @@ namespace DAL
     partial void OnidPenjualanChanged();
     partial void OnidCustomerChanging(string value);
     partial void OnidCustomerChanged();
-    partial void OnidProgramChanging(string value);
-    partial void OnidProgramChanged();
     partial void OntglTransChanging(System.DateTime value);
     partial void OntglTransChanged();
-    partial void OnqtyChanging(int value);
-    partial void OnqtyChanged();
+    partial void OndetailChanging(string value);
+    partial void OndetailChanged();
     #endregion
 		
 		public MsPenjualan()
 		{
 			this._MsCustomer = default(EntityRef<MsCustomer>);
-			this._MsProgram = default(EntityRef<MsProgram>);
 			OnCreated();
 		}
 		
@@ -693,30 +844,6 @@ namespace DAL
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_idProgram", DbType="Char(10) NOT NULL", CanBeNull=false)]
-		public string idProgram
-		{
-			get
-			{
-				return this._idProgram;
-			}
-			set
-			{
-				if ((this._idProgram != value))
-				{
-					if (this._MsProgram.HasLoadedOrAssignedValue)
-					{
-						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
-					}
-					this.OnidProgramChanging(value);
-					this.SendPropertyChanging();
-					this._idProgram = value;
-					this.SendPropertyChanged("idProgram");
-					this.OnidProgramChanged();
-				}
-			}
-		}
-		
 		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_tglTrans", DbType="DateTime NOT NULL")]
 		public System.DateTime tglTrans
 		{
@@ -737,22 +864,22 @@ namespace DAL
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_qty", DbType="Int NOT NULL")]
-		public int qty
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_detail", DbType="VarChar(MAX) NOT NULL", CanBeNull=false)]
+		public string detail
 		{
 			get
 			{
-				return this._qty;
+				return this._detail;
 			}
 			set
 			{
-				if ((this._qty != value))
+				if ((this._detail != value))
 				{
-					this.OnqtyChanging(value);
+					this.OndetailChanging(value);
 					this.SendPropertyChanging();
-					this._qty = value;
-					this.SendPropertyChanged("qty");
-					this.OnqtyChanged();
+					this._detail = value;
+					this.SendPropertyChanged("detail");
+					this.OndetailChanged();
 				}
 			}
 		}
@@ -787,40 +914,6 @@ namespace DAL
 						this._idCustomer = default(string);
 					}
 					this.SendPropertyChanged("MsCustomer");
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="MsProgram_MsPenjualan", Storage="_MsProgram", ThisKey="idProgram", OtherKey="idProgram", IsForeignKey=true)]
-		public MsProgram MsProgram
-		{
-			get
-			{
-				return this._MsProgram.Entity;
-			}
-			set
-			{
-				MsProgram previousValue = this._MsProgram.Entity;
-				if (((previousValue != value) 
-							|| (this._MsProgram.HasLoadedOrAssignedValue == false)))
-				{
-					this.SendPropertyChanging();
-					if ((previousValue != null))
-					{
-						this._MsProgram.Entity = null;
-						previousValue.MsPenjualans.Remove(this);
-					}
-					this._MsProgram.Entity = value;
-					if ((value != null))
-					{
-						value.MsPenjualans.Add(this);
-						this._idProgram = value.idProgram;
-					}
-					else
-					{
-						this._idProgram = default(string);
-					}
-					this.SendPropertyChanged("MsProgram");
 				}
 			}
 		}
@@ -866,8 +959,6 @@ namespace DAL
 		
 		private string _technology;
 		
-		private EntitySet<MsPenjualan> _MsPenjualans;
-		
     #region Extensibility Method Definitions
     partial void OnLoaded();
     partial void OnValidate(System.Data.Linq.ChangeAction action);
@@ -890,7 +981,6 @@ namespace DAL
 		
 		public MsProgram()
 		{
-			this._MsPenjualans = new EntitySet<MsPenjualan>(new Action<MsPenjualan>(this.attach_MsPenjualans), new Action<MsPenjualan>(this.detach_MsPenjualans));
 			OnCreated();
 		}
 		
@@ -1030,189 +1120,6 @@ namespace DAL
 					this._technology = value;
 					this.SendPropertyChanged("technology");
 					this.OntechnologyChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="MsProgram_MsPenjualan", Storage="_MsPenjualans", ThisKey="idProgram", OtherKey="idProgram")]
-		public EntitySet<MsPenjualan> MsPenjualans
-		{
-			get
-			{
-				return this._MsPenjualans;
-			}
-			set
-			{
-				this._MsPenjualans.Assign(value);
-			}
-		}
-		
-		public event PropertyChangingEventHandler PropertyChanging;
-		
-		public event PropertyChangedEventHandler PropertyChanged;
-		
-		protected virtual void SendPropertyChanging()
-		{
-			if ((this.PropertyChanging != null))
-			{
-				this.PropertyChanging(this, emptyChangingEventArgs);
-			}
-		}
-		
-		protected virtual void SendPropertyChanged(String propertyName)
-		{
-			if ((this.PropertyChanged != null))
-			{
-				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
-			}
-		}
-		
-		private void attach_MsPenjualans(MsPenjualan entity)
-		{
-			this.SendPropertyChanging();
-			entity.MsProgram = this;
-		}
-		
-		private void detach_MsPenjualans(MsPenjualan entity)
-		{
-			this.SendPropertyChanging();
-			entity.MsProgram = null;
-		}
-	}
-	
-	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.TopLink")]
-	public partial class TopLink : INotifyPropertyChanging, INotifyPropertyChanged
-	{
-		
-		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
-		
-		private int _idLink;
-		
-		private string _name;
-		
-		private string _links;
-		
-		private int _status;
-		
-		private System.Nullable<int> _level;
-		
-    #region Extensibility Method Definitions
-    partial void OnLoaded();
-    partial void OnValidate(System.Data.Linq.ChangeAction action);
-    partial void OnCreated();
-    partial void OnidLinkChanging(int value);
-    partial void OnidLinkChanged();
-    partial void OnnameChanging(string value);
-    partial void OnnameChanged();
-    partial void OnlinksChanging(string value);
-    partial void OnlinksChanged();
-    partial void OnstatusChanging(int value);
-    partial void OnstatusChanged();
-    partial void OnlevelChanging(System.Nullable<int> value);
-    partial void OnlevelChanged();
-    #endregion
-		
-		public TopLink()
-		{
-			OnCreated();
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_idLink", DbType="Int NOT NULL", IsPrimaryKey=true)]
-		public int idLink
-		{
-			get
-			{
-				return this._idLink;
-			}
-			set
-			{
-				if ((this._idLink != value))
-				{
-					this.OnidLinkChanging(value);
-					this.SendPropertyChanging();
-					this._idLink = value;
-					this.SendPropertyChanged("idLink");
-					this.OnidLinkChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_name", DbType="VarChar(50) NOT NULL", CanBeNull=false)]
-		public string name
-		{
-			get
-			{
-				return this._name;
-			}
-			set
-			{
-				if ((this._name != value))
-				{
-					this.OnnameChanging(value);
-					this.SendPropertyChanging();
-					this._name = value;
-					this.SendPropertyChanged("name");
-					this.OnnameChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_links", DbType="VarChar(MAX) NOT NULL", CanBeNull=false)]
-		public string links
-		{
-			get
-			{
-				return this._links;
-			}
-			set
-			{
-				if ((this._links != value))
-				{
-					this.OnlinksChanging(value);
-					this.SendPropertyChanging();
-					this._links = value;
-					this.SendPropertyChanged("links");
-					this.OnlinksChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_status", DbType="Int NOT NULL")]
-		public int status
-		{
-			get
-			{
-				return this._status;
-			}
-			set
-			{
-				if ((this._status != value))
-				{
-					this.OnstatusChanging(value);
-					this.SendPropertyChanging();
-					this._status = value;
-					this.SendPropertyChanged("status");
-					this.OnstatusChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[level]", Storage="_level", DbType="Int")]
-		public System.Nullable<int> level
-		{
-			get
-			{
-				return this._level;
-			}
-			set
-			{
-				if ((this._level != value))
-				{
-					this.OnlevelChanging(value);
-					this.SendPropertyChanging();
-					this._level = value;
-					this.SendPropertyChanged("level");
-					this.OnlevelChanged();
 				}
 			}
 		}

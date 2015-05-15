@@ -12,21 +12,19 @@ namespace UI
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            string username = Convert.ToString(Session["username"]);
-            if(username != null )
+            menuAtas.InnerHtml = "<li>&nbsp;</li>";
+            menuMobile.InnerHtml = "<li>&nbsp;</li>";
+            if (Session["username"] != null && Session["lvl"] != null)
             {
-                //Response.Redirect("home.aspx");
+                Response.Redirect("/home.aspx");
             }
-            
         }
 
-        protected void Button1_Click(object sender, EventArgs e)
+        protected void Button1_Click1(object sender, EventArgs e)
         {
             string username = usr.Value;
             string pwd = pwds.Value;
-            UserBAL bal = new UserBAL();
-            Response.Write("<script>alert('Wrong Username Or Password')</script>");
-
+            UserBAL bal = new UserBAL();     
             if (bal.CekLogin(username, pwd))
             {
                 int lvl = bal.getLevel(username);

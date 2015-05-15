@@ -22,7 +22,7 @@
 		</div>	
 		<div class="item" onclick="location.href='details.html';">
 			<div class="cau_left">
-				<img class="lazyOwl" data-src="images/c2.jpg" alt="Lazy Owl Image/>
+				<img class="lazyOwl" data-src="images/c2.jpg" alt="Lazy Owl Image" />
 			</div>
 			<div class="cau_left">
 				<h4><a href="details.html">branded tees</a></h4>
@@ -31,7 +31,7 @@
 		</div>	
 		<div class="item" onclick="location.href='details.html';">
 			<div class="cau_left">
-				<img class="lazyOwl" data-src="images/c3.jpg" alt="Lazy Owl Image">
+				<img class="lazyOwl" data-src="images/c3.jpg" alt="Lazy Owl Image" />
 			</div>
 			<div class="cau_left">
 				<h4><a href="details.html">branded jeens</a></h4>

@@ -48,8 +48,11 @@
                                         </li>
                                     </ul>
                                     <div class="btn_form">
-                                        <input type="submit" value="add to cart" title="" />
+                                        <asp:Button ID="Button1" runat="server" Text="add to cart" 
+                                            onclick="Button1_Click" />
+                                        
                                     </form>
+                                    </div>
                                 </div>
                                
                                 <div class="clear">

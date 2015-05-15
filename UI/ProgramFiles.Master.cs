@@ -12,30 +12,39 @@ namespace UI
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            int lvl = 1;//Convert.ToInt32(Session["lvl"]);
-            TopLinksDAL d = new TopLinksDAL();
-            List<TopLink> tl = new List<TopLink>();
-            tl = d.GetLink(lvl);
-
-            menuAtas.InnerHtml = "";
-            menuMobile.InnerHtml = "";
-
-            foreach (TopLink a in tl)
+            if (Session["username"] == null || Session["lvl"] == null)
             {
-                menuAtas.InnerHtml += "<li><a href='" + a.links + "'>" + a.name + "</a></li> |";
-                menuMobile.InnerHtml += "<li class='nav-item'><a href='" + a.links + "'>" + a.name + "</a></li>";
+                Response.Redirect("/Login.aspx");
             }
+            else
+            {
+                int lvl = 1;//Convert.ToInt32(Session["lvl"]);
+                TopLinksDAL d = new TopLinksDAL();
+                List<TopLink> tl = new List<TopLink>();
+                tl = d.GetLink(lvl);
+                menuAtas.InnerHtml = "<li></li>";
+                menuMobile.InnerHtml = "<li></li>";
+                int panjang = tl.Count; int count = 1;
+                foreach (TopLink a in tl)
+                {
+                    menuAtas.InnerHtml += "<li><a href='" + a.links + "'>" + a.name + "</a></li>";
+                    if (count != panjang) { menuAtas.InnerHtml += "|"; }
+                    menuMobile.InnerHtml += "<li class='nav-item'><a href='" + a.links + "'>" + a.name + "</a></li>";
+                    count++;
+                }
 
-            //if (Session["lvl"] == null)
-            //{
-            //    menuAtas.InnerHtml = "<li>&nbsp;</li>";
-            //    menuMobile.InnerHtml = "<li>&nbsp;</li>";
-            //}
+                //if (Session["lvl"] == null)
+                //{
+                //    menuAtas.InnerHtml = "<li>&nbsp;</li>";
+                //    menuMobile.InnerHtml = "<li>&nbsp;</li>";
+                //}
 
-            //else 
-            //{
-                
-            //}
+                //else 
+                //{
+
+                //}
+            }
+            
             
         }
     }
