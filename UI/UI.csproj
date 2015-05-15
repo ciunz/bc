@@ -51,6 +51,7 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="AddTopLink.aspx" />
     <Content Include="AllProgram.aspx" />
     <Content Include="AllUser.aspx" />
     <Content Include="css\owl.carousel.css" />
@@ -165,6 +166,7 @@
     <Content Include="Logout.aspx" />
     <Content Include="Register.aspx" />
     <Content Include="SignUp.aspx" />
+    <Content Include="TopLinks.aspx" />
     <Content Include="User.aspx" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
@@ -175,6 +177,13 @@
     </Content>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AddTopLink.aspx.cs">
+      <DependentUpon>AddTopLink.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AddTopLink.aspx.designer.cs">
+      <DependentUpon>AddTopLink.aspx</DependentUpon>
+    </Compile>
     <Compile Include="AllProgram.aspx.cs">
       <DependentUpon>AllProgram.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -252,6 +261,13 @@
     </Compile>
     <Compile Include="SignUp.aspx.designer.cs">
       <DependentUpon>SignUp.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="TopLinks.aspx.cs">
+      <DependentUpon>TopLinks.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="TopLinks.aspx.designer.cs">
+      <DependentUpon>TopLinks.aspx</DependentUpon>
     </Compile>
     <Compile Include="User.aspx.cs">
       <DependentUpon>User.aspx</DependentUpon>

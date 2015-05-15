@@ -12,7 +12,7 @@ namespace UI
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            int lvl = Convert.ToInt32(Session["lvl"]);
+            int lvl = 1;//Convert.ToInt32(Session["lvl"]);
             TopLinksDAL d = new TopLinksDAL();
             List<TopLink> tl = new List<TopLink>();
             tl = d.GetLink(lvl);
@@ -20,20 +20,22 @@ namespace UI
             menuAtas.InnerHtml = "";
             menuMobile.InnerHtml = "";
 
-            if (Session["lvl"] == null)
+            foreach (TopLink a in tl)
             {
-                menuAtas.InnerHtml = "<li>&nbsp;</li>";
-                menuMobile.InnerHtml = "<li>&nbsp;</li>";
+                menuAtas.InnerHtml += "<li><a href='" + a.links + "'>" + a.name + "</a></li> |";
+                menuMobile.InnerHtml += "<li class='nav-item'><a href='" + a.links + "'>" + a.name + "</a></li>";
             }
 
-            else 
-            {
-                foreach (TopLink a in tl)
-                {
-                    menuAtas.InnerHtml += "<li><a href='" + a.links + "'>" + a.name + "</a></li> |";
-                    menuMobile.InnerHtml += "<li class='nav-item'><a href='" + a.links + "'>" + a.name + "</a></li>";
-                }
-            }
+            //if (Session["lvl"] == null)
+            //{
+            //    menuAtas.InnerHtml = "<li>&nbsp;</li>";
+            //    menuMobile.InnerHtml = "<li>&nbsp;</li>";
+            //}
+
+            //else 
+            //{
+                
+            //}
             
         }
     }

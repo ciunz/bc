@@ -20,6 +20,34 @@ namespace DAL
             return hasil.ToList();
         }
 
+        public List<TopLink> GetLinkList()
+        {
+            dbDataContext db = new dbDataContext();
+
+            //TopLink top = new TopLink();
+
+            var hasil = from baris in db.TopLinks
+  
+                        select baris;
+
+            return hasil.ToList();
+        }
+        
+        public TopLink GetSingleLink(string url)
+        {
+            dbDataContext db = new dbDataContext();
+
+            //TopLink top = new TopLink();
+
+            var hasil = (from baris in db.TopLinks
+                         where baris.links == url
+                        select baris).SingleOrDefault();
+
+            return hasil;
+        }
+
+
+
 
 
         public bool AddLink(TopLink top)
