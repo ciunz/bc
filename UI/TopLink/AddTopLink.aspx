@@ -29,7 +29,10 @@
                             <span>
                                 <label>
                                     Status</label></span> <span>
-                                        <asp:TextBox ID="TextBox3" runat="server"></asp:TextBox>
+                                        <select runat="server" id="stats" class="statusAktif">
+                                        <option value="0">Non Active</option>
+                                        <option value="1">Active</option>
+                                        </select>
                                     </span>
                         </div>
                         <div>

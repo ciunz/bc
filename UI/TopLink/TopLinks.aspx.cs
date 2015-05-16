@@ -15,25 +15,28 @@ namespace UI
             TopLinksDAL top = new TopLinksDAL();
             List<TopLink> tl = new List<TopLink>();
             tl = top.GetLinkList();
-            string contents = "";
-            foreach(TopLink t in tl)
+            int counter = 1;
+            string contents = "<div class='grids_of_4'>";
+            foreach (TopLink t in tl)
             {
-                contents += "<div>";
-				contents +=	"<span><label>Nama</label></span>";
-				contents +=	"<span><input type='text' class='textbox' value='"+ t.name +"' /></span>";
-                contents += "</div><div>";
-                contents += "<span><label>Link Address</label></span>";
-                contents += "<span><input type='text' class='textbox' value='" + t.links + "' /></span>";
-                contents += "</div><div>";
-                contents += "<span><label>Level</label></span>";
-                contents += "<span><input type='text' class='textbox' value='" + t.level + "' /></span>";
-                contents += "</div><div>";
-                contents += "<span><label>Status</label></span>";
-                contents += "<span><input type='text' class='textbox' value='" + t.status + "' /></span>";
-                contents += "</div><div>";
-                contents += "<a href='AddTopLink.aspx?type=u&id=" + Convert.ToString(t.idLink) + "'>Update</a>";
-				contents +=	"</div>";
+                contents += "<div class='grid1_of_4' style='  border:1px solid rgb(223, 223, 223);'>";
+                contents += "<h4 style='color:#777777;'>" + t.name + "</h4>";
+                contents += "<ul class='f_nav'>";                
+                contents += "<li>Link : " + t.links + "</li>";
+                if (t.status == 0)
+                { contents += "<li>Status : Non Active </li>"; }
+                else { contents += "<li>Status : Active </li>"; }
+                contents += "<li>Level : " + t.level + "</li>";
+                contents += "</ul>";
+                contents += "<a class='tombol' href='/TopLink/AddTopLink.aspx?type=u&id=" + Convert.ToString(t.idLink) + "'>Update</a>";
+                contents += "</div>";
+                if (counter % 4 == 0 && counter != 0)
+                {
+                    contents += "</div><div class='clear'></div><div class='grids_of_4'>";
+                }
+                counter++;
             }
+            contents += "</div>";
             isi.InnerHtml = contents;
         }
 

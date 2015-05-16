@@ -24,7 +24,8 @@ namespace UI
                     tl = dal.GetSingleLink(id);
                     TextBox1.Text = tl.name;
                     TextBox2.Text = tl.links;
-                    TextBox3.Text = Convert.ToString(tl.status);
+                    stats.SelectedIndex = tl.status;
+                    //TextBox3.Text = Convert.ToString(tl.status);
                     TextBox4.Text = Convert.ToString(tl.level);
                 }
             }
@@ -33,7 +34,7 @@ namespace UI
             }
             else
             {
-                Response.Redirect("home.aspx");
+                Response.Redirect("/home.aspx");
             }
         }
 
@@ -49,7 +50,8 @@ namespace UI
                 tl = td.GetSingleLink(id);
                 tl.name = TextBox1.Text;
                 tl.links = TextBox2.Text;
-                tl.status = Convert.ToInt32(TextBox3.Text);
+                tl.status = Convert.ToInt32(stats.Value);
+                //tl.status = Convert.ToInt32(TextBox3.Text);
                 tl.level = Convert.ToInt32(TextBox4.Text);
                 if (td.UpdateLink(tl))
                 {
@@ -68,13 +70,13 @@ namespace UI
                 {
                     name = TextBox1.Text,
                     links = TextBox2.Text,
-                    status = Convert.ToInt32(TextBox3.Text),
+                    status = Convert.ToInt32(stats.Value),
                     level = Convert.ToInt32(TextBox4.Text)
                 };
                 TopLinksDAL dal = new TopLinksDAL();
                 if (dal.AddLink(tl))
                 {
-                    Response.Write("<script>alert('berhasil')</script>");
+                    Response.Write("<script>confirm('berhasil')</script>");
                     Response.Redirect("TopLinks.aspx");
                 }
                 else
@@ -83,10 +85,7 @@ namespace UI
                 }
 
             }
-            //else
-            //{
-            //    Response.Redirect("home.aspx");
-            //}
+
         }
 
     }

@@ -37,11 +37,11 @@ namespace UI
                         MsProgramBAL probal = new MsProgramBAL();
                         probal = bal.getProgramById(o);
                         cart.InnerHtml += "<li><p>"+ probal.title + " "+ probal.size + " MB" +"</p></li>";
-                        totalSize += probal.size;
-                        cart.InnerHtml += "<li><h3>Total : " + totalSize + " MB</h3></li>";
+                        totalSize += probal.size;               
                     }
+                    cart.InnerHtml += "<li><h3>Total : " + totalSize + " MB</h3></li>";
                     total.InnerText = totalSize + "MB";
-                    cart.InnerHtml += "<input type='submit' value='Cek Out' id='cekOut'>";
+                    cart.InnerHtml += "<a class='tombol' href='/CekOut.aspx' >Cek Out</a>";
                 }
                 
                 int lvl = 1;//Convert.ToInt32(Session["lvl"]);
@@ -55,7 +55,7 @@ namespace UI
                 {
                     menuAtas.InnerHtml += "<li><a href='" + a.links + "'>" + a.name + "</a></li>";
                     if (count != panjang) { menuAtas.InnerHtml += "|"; }
-                    menuMobile.InnerHtml += "<li class='nav-item'><a href='" + a.links + "'>" + a.name + "</a></li>";
+                    menuMobile.InnerHtml += "<li class='nav-item'><a href='/" + a.links + "'>" + a.name + "</a></li>";
                     count++;
                 }
             }

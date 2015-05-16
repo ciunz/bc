@@ -40,6 +40,24 @@ namespace UI {
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl cart;
         
         /// <summary>
+        /// I1 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl I1;
+        
+        /// <summary>
+        /// Ul1 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl Ul1;
+        
+        /// <summary>
         /// menuAtas control.
         /// </summary>
         /// <remarks>

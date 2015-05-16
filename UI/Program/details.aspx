@@ -17,7 +17,7 @@
                                 <div class="product-essential">
                                     <div class="product-img-box">
                                         <div class="product-image">
-                                            <img runat="server" id="gambar" src="images/0001-2.jpg" alt="" title="" />
+                                            <img runat="server" id="gambar" src="" alt="" title="" />
                                         </div>
                                     </div>
                                 </div>
@@ -33,7 +33,7 @@
                                 <h5 runat="server" id="ukuran">
                                     Empty <a href="#">Add to Cart</a></h5>
                                 <div class="available">
-                                    <form action="index.aspx" method="post">
+                                    <form action="/home.aspx" method="post">
                                     <h4>
                                         Available Options :</h4>
                                     <ul>
@@ -48,7 +48,7 @@
                                         </li>
                                     </ul>
                                     <div class="btn_form">
-                                        <asp:Button ID="Button1" runat="server" Text="add to cart" 
+                                        <asp:Button ID="Button1" runat="server" Text="add to cart" CssClass="tombol"
                                             onclick="Button1_Click" />
                                         
                                     </form>
@@ -57,6 +57,7 @@
                                
                                 <div class="clear">
                                 </div>
+                                <br />
                             </div>
                             <div class="share-desc">
                                 <div class="share">
@@ -64,13 +65,13 @@
                                         Share Product :</h4>
                                     <ul class="share_nav">
                                         <li><a href="#">
-                                            <img src="images/facebook.png" title="facebook" alt="" /></a></li>
+                                            <img src="/images/facebook.png" title="facebook" alt="" /></a></li>
                                         <li><a href="#">
-                                            <img src="images/twitter.png" title="Twiiter" alt="" /></a></li>
+                                            <img src="/images/twitter.png" title="Twiiter" alt="" /></a></li>
                                         <li><a href="#">
-                                            <img src="images/rss.png" title="Rss" alt="" /></a></li>
+                                            <img src="/images/rss.png" title="Rss" alt="" /></a></li>
                                         <li><a href="#">
-                                            <img src="images/gpluse.png" title="Google+" alt="" /></a></li>
+                                            <img src="/images/gpluse.png" title="Google+" alt="" /></a></li>
                                     </ul>
                                 </div>
                                 <div class="clear">
@@ -83,20 +84,17 @@
                     <!-- start tabs -->
                     <section class="tabs">
 		            <input id="tab-1" type="radio" name="radio-set" class="tab-selector-1" checked="checked">
-			        <label for="tab-1" class="tab-label-1">overview</label>
+			        <label for="tab-1" class="tab-label-1">Rating</label>
 			
 		            <input id="tab-2" type="radio" name="radio-set" class="tab-selector-2">
-			        <label for="tab-2" class="tab-label-2">consumer electronics</label>
+			        <label for="tab-2" class="tab-label-2">Description</label>
 			
-		            <input id="tab-3" type="radio" name="radio-set" class="tab-selector-3">
-			        <label for="tab-3" class="tab-label-3">semiconductor</label>
-	          
 				    <div class="clear-shadow"></div>
 					
 			        <div class="content">
 				        <div class="content-1">
-				        	<p class="para top"><span>LOREM IPSUM</span> There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable. If you are going to use a passage of Lorem Ipsum, you need to be sure there isn't anything embarrassing hidden in the middle of text. All the Lorem Ipsum generators on the Internet tend to repeat predefined chunks as necessary, making this the first true generator on the Internet. It uses a dictionary of over 200 Latin words, combined </p>
-							<ul>
+				        	<p class="para top" runat="server" id="descr"><span>LOREM IPSUM</span> </p>
+                            <ul>
 								<li>Research</li>
 								<li>Design and Development</li>
 								<li>Porting and Optimization</li>
@@ -107,14 +105,15 @@
 							<div class="clear"></div>
 						</div>
 				        <div class="content-2">
-							<p class="para"><span>WELCOME </span> Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words, consectetur, from a Lorem Ipsum passage, and going through the cites of the word in classical literature, discovered the undoubtable source. Lorem Ipsum comes from sections </p>
-							<ul class="qua_nav">
+							<p class="para" runat="server" id="rating"><span>WELCOME </span></p>
+                            <ul class="qua_nav">
 								<li>Multimedia Systems</li>
 								<li>Digital media adapters</li>
 								<li>Set top boxes for HDTV and IPTV Player applications on various Operating Systems and Hardware Platforms</li>
 							</ul>
+                            <div class="clear"></div>
 						</div>
-				        <div class="content-3">
+				       <%-- <div class="content-3">
 				        	<p class="para top"><span>LOREM IPSUM</span> There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable. If you are going to use a passage of Lorem Ipsum, you need to be sure there isn't anything embarrassing hidden in the middle of text. All the Lorem Ipsum generators on the Internet tend to repeat predefined chunks as necessary, making this the first true generator on the Internet. It uses a dictionary of over 200 Latin words, combined </p>
 							<ul>
 								<li>Research</li>
@@ -125,7 +124,7 @@
 								<li>Maintenance and Support</li>
 							</ul>
 							<div class="clear"></div>
-						</div>
+						</div>--%>
 			        </div>
 			        </section>
                     <!-- end tabs -->
@@ -154,7 +153,7 @@
                         </div>
                         <div class="banner-wrap bottom_banner color_link">
                             <a href="#" class="main_link">
-                                <figure><img src="images/delivery.png" alt=""/></figure>
+                                <figure><img src="/images/delivery.png" alt=""/></figure>
                                 <h5>
                                     <span>Free Shipping</span><br>
                                     on orders over $99.</h5>
