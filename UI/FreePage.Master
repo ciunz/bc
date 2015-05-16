@@ -1,4 +1,6 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Login.aspx.cs" Inherits="UI.Login" %>
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="FreePage.master.cs" Inherits="UI.FreePage" %>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
@@ -14,8 +16,12 @@
     <link href="css/slider.css" rel="stylesheet" type="text/css" media="all" />
     <script type="text/javascript" src="js/modernizr.custom.28468.js"></script>
     <script type="text/javascript" src="js/jquery.cslider.js"></script>
+
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
 </head>
 <body>
+
     <div class="header_bg">
         <div class="wrap">
             <div class="header">
@@ -65,9 +71,9 @@
                     <nav class="nav">	        	
 	    	    <a href="#" id="w3-menu-trigger"> </a>
 	                  <ul runat="server" id="menuMobile" class="nav-list" style="">
-	                        <li><a href="/Login.aspx">LOG IN</a></li>|
+	                        <li><a href="/User/Login.aspx">LOG IN</a></li>|
                             <li><a href="/User/register.aspx">REGISTER</a></li>|
-                            <li><a href="/User/AboutUs.aspx">ABOUT US</a></li>
+                            <li><a href="/AboutUs.aspx">ABOUT US</a></li>
 	                 </ul>
 	           </nav>
                     <div class="search_box">
@@ -85,56 +91,17 @@
             </div>
         </div>
     </div>
-    <form id="Form1" runat="server">
-    <div class="main_bg">
-        <div class="wrap">
-            <div class="main">
-                <div class="contact">
-                    <div class="contact-form">
-                        <h2>
-                            Login</h2>
-                        <asp:Label ID="Label1" runat="server" ForeColor="Red" Text="<h3>Wrong Username or Password</h3>"
-                            Visible="False"></asp:Label>
-                        <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ErrorMessage="Nama Tidak Boleh Kosong!"
-                            ControlToValidate="usr" ForeColor="Red"></asp:RequiredFieldValidator>
-                        <br />
-                        <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" ErrorMessage="RequiredFieldValidator"
-                            ControlToValidate="pwds" ForeColor="Red">Password Tidak Boleh Kosong!</asp:RequiredFieldValidator>
-                        <div>
-                            <span>
-                                <label>
-                                    Name</label></span> <span>
-                                        <input name="Username" type="text" class="textbox" runat="server" id="usr" /></span>
-                        </div>
-                        <div>
-                            <span>
-                                <label>
-                                    Password</label></span> <span>
-                                        <input name="Password" type="password" class="textbox" runat="server" id="pwds" /></span>
-                        </div>
-                        <div>
-                            <span>
-                                <asp:Button ID="Button1" runat="server" Text="Submit" OnClick="Button1_Click1" />
-                            </span>
-                        </div>
-                    </div>
-                    <div class="clear">
-                    </div>
-                </div>
-            </div>
-        </div>
+
+
+    <form id="form1" runat="server">
+    <div>
+        <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+        
+        </asp:ContentPlaceHolder>
     </div>
     </form>
-    <!-- start footer -->
-    <div class="footer_bg">
-        <div class="wrap">
-            <div class="footer">
-                <!-- start grids_of_4 -->
-            </div>
-        </div>
-    </div>
-    <!-- start footer -->
-    <div class="footer_bg1">
+
+ <div class="footer_bg1">
         <div class="wrap">
             <div class="footer">
                 <!-- scroll_top_btn -->

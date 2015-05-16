@@ -51,6 +51,7 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="AboutUs.aspx" />
     <Content Include="CekOut.aspx" />
     <Content Include="Login.aspx" />
     <Content Include="TopLink\AddTopLink.aspx" />
@@ -179,12 +180,26 @@
     </Content>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AboutUs.aspx.cs">
+      <DependentUpon>AboutUs.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AboutUs.aspx.designer.cs">
+      <DependentUpon>AboutUs.aspx</DependentUpon>
+    </Compile>
     <Compile Include="CekOut.aspx.cs">
       <DependentUpon>CekOut.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="CekOut.aspx.designer.cs">
       <DependentUpon>CekOut.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="FreePage.Master.cs">
+      <DependentUpon>FreePage.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="FreePage.Master.designer.cs">
+      <DependentUpon>FreePage.Master</DependentUpon>
     </Compile>
     <Compile Include="Login.aspx.cs">
       <DependentUpon>Login.aspx</DependentUpon>
@@ -298,6 +313,7 @@
     <None Include="fonts\Amble-Regular-webfont.ttf" />
     <None Include="fonts\BebasNeue-webfont.ttf" />
     <Content Include="ProgramFiles.Master" />
+    <Content Include="FreePage.Master" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\BAL\BAL.csproj">

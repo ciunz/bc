@@ -24,8 +24,8 @@
 		<link href="css/owl.carousel.css" rel="stylesheet">
 		     <!-- Owl Carousel Assets -->
 		    <!-- Prettify -->
-		    <script src="js/owl.carousel.js"></script>
-		        <script>
+		    <script type="text/javascript" src="js/owl.carousel.js"></script>
+		        <script type="text/javascript">
 		    $(document).ready(function() {
 		
 		      $("#owl-demo").owlCarousel({
@@ -81,7 +81,7 @@
 		</div>
         <div class="h_icon">
 		<ul class="icon1 sub-icon1">
-			<li><a class="active-icon c1" href="#"><i runat="server" id="I1"></i></a>
+			<li><a class="active-icon c2" href="#"><i runat="server" id="I1"></i></a>
 				<ul class="sub-icon1 list" runat="server" id="Ul1">
 					
 				</ul>

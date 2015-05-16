@@ -14,12 +14,10 @@ namespace UI
         {
             
             shop.InnerHtml = Convert.ToString(Application["shopper"]);
-            if (Convert.ToString(Application["shopper"]) == null)
+            if (Application["shopper"] == null)
             { user.InnerText = "0"; shop.InnerHtml = "0"; }
             else
             { user.InnerText = Convert.ToString(Application["shopper"]); }
-            menuAtas.InnerHtml = "<li>&nbsp;</li>";
-            menuMobile.InnerHtml = "<li>&nbsp;</li>";
             if (Session["username"] != null && Session["lvl"] != null)
             {
                 Response.Redirect("/home.aspx");
@@ -41,7 +39,7 @@ namespace UI
                 int lvl = bal.getLevel(username);
                 Session["username"] = username;
                 Session["lvl"] = lvl;
-                Response.Redirect("home.aspx");
+                Response.Redirect("/home.aspx");
             }
             else
             {
