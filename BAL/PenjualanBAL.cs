@@ -49,6 +49,12 @@ namespace BAL
             return baru;
         }
 
+        public int GetNextId()
+        {
+            PenjualanDAL dal = new PenjualanDAL();
+            return dal.GetNextId();
+        }
+
 
     }
 }

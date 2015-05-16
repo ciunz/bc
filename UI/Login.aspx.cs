@@ -15,7 +15,7 @@ namespace UI
             
             shop.InnerHtml = Convert.ToString(Application["shopper"]);
             if (Convert.ToString(Application["shopper"]) == null)
-            { user.InnerText ="0"; }
+            { user.InnerText = "0"; shop.InnerHtml = "0"; }
             else
             { user.InnerText = Convert.ToString(Application["shopper"]); }
             menuAtas.InnerHtml = "<li>&nbsp;</li>";

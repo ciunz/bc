@@ -34,15 +34,6 @@
       <Association Name="MsCustomer_MsPenjualan" Member="MsPenjualans" ThisKey="idCustomer" OtherKey="idCustomer" Type="MsPenjualan" />
     </Type>
   </Table>
-  <Table Name="dbo.MsPenjualan" Member="MsPenjualans">
-    <Type Name="MsPenjualan">
-      <Column Name="idPenjualan" Type="System.String" DbType="Char(10) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
-      <Column Name="idCustomer" Type="System.String" DbType="Char(10) NOT NULL" CanBeNull="false" />
-      <Column Name="tglTrans" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
-      <Column Name="detail" Type="System.String" DbType="VarChar(MAX) NOT NULL" CanBeNull="false" />
-      <Association Name="MsCustomer_MsPenjualan" Member="MsCustomer" ThisKey="idCustomer" OtherKey="idCustomer" Type="MsCustomer" IsForeignKey="true" />
-    </Type>
-  </Table>
   <Table Name="dbo.MsProgram" Member="MsPrograms">
     <Type Name="MsProgram">
       <Column Name="idProgram" Type="System.String" DbType="Char(10) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
@@ -52,6 +43,15 @@
       <Column Name="rating" Type="System.Int32" DbType="Int" CanBeNull="true" />
       <Column Name="img" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
       <Column Name="technology" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+    </Type>
+  </Table>
+  <Table Name="dbo.MsPenjualan" Member="MsPenjualans">
+    <Type Name="MsPenjualan">
+      <Column Name="idPenjualan" Type="System.String" DbType="Char(10) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="idCustomer" Type="System.String" DbType="Char(10) NOT NULL" CanBeNull="false" />
+      <Column Name="tglTrans" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="detail" Type="System.String" DbType="VarChar(MAX) NOT NULL" CanBeNull="false" />
+      <Association Name="MsCustomer_MsPenjualan" Member="MsCustomer" ThisKey="idCustomer" OtherKey="idCustomer" Type="MsCustomer" IsForeignKey="true" />
     </Type>
   </Table>
 </Database>

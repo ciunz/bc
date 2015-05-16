@@ -22,6 +22,16 @@ namespace BAL
             return c.lvl;
         }
 
+        public MsUserBAL getUserByUsername(string username)
+        {
+            UserDAL dal = new UserDAL();
+            MsUserBAL bal = new MsUserBAL();
+            MsCustomer c = new MsCustomer();
+            c = dal.GetUserByUsername(username);
+            return bal.ConvertToMsMsUserBAL(c);
+
+        }
+
         public bool AddUser(MsUserBAL b)
         {
             UserDAL dal = new UserDAL();    

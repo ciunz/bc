@@ -12,8 +12,6 @@ namespace BAL
         { get; set; }
         public string idCustomer
         { get; set; }
-        public string idProgram
-        { get; set; }
         public string tglTrans
         { get; set; }
         public string detail

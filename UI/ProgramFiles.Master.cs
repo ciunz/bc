@@ -19,6 +19,8 @@ namespace UI
             }
             else
             {
+                Ul1.InnerHtml = "<li><h3>user Login : " + Convert.ToString(Application["shopper"]) +"</h3></li>";
+                I1.InnerHtml = Convert.ToString(Application["shopper"]);
                 if(Session["order"]==null)
                 {
                     cart.InnerHtml="<li><h3>shopping cart empty</h3></li>";
@@ -44,7 +46,7 @@ namespace UI
                     cart.InnerHtml += "<a class='tombol' href='/CekOut.aspx' >Cek Out</a>";
                 }
                 
-                int lvl = 1;//Convert.ToInt32(Session["lvl"]);
+                int lvl = Convert.ToInt32(Session["lvl"]);
                 TopLinksDAL d = new TopLinksDAL();
                 List<TopLink> tl = new List<TopLink>();
                 tl = d.GetLink(lvl);

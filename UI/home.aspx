@@ -4,9 +4,6 @@
 
 
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-
-<img style="padding:0 auto 0 auto;" src="images/slider5.png" alt="gambar" />
-
 <!----start-cursual---->
 <div class="wrap">
 <!----start-img-cursual---->

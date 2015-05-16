@@ -39,12 +39,12 @@ namespace DAL
     partial void InsertMsCustomer(MsCustomer instance);
     partial void UpdateMsCustomer(MsCustomer instance);
     partial void DeleteMsCustomer(MsCustomer instance);
-    partial void InsertMsPenjualan(MsPenjualan instance);
-    partial void UpdateMsPenjualan(MsPenjualan instance);
-    partial void DeleteMsPenjualan(MsPenjualan instance);
     partial void InsertMsProgram(MsProgram instance);
     partial void UpdateMsProgram(MsProgram instance);
     partial void DeleteMsProgram(MsProgram instance);
+    partial void InsertMsPenjualan(MsPenjualan instance);
+    partial void UpdateMsPenjualan(MsPenjualan instance);
+    partial void DeleteMsPenjualan(MsPenjualan instance);
     #endregion
 		
 		public dbDataContext() : 
@@ -101,19 +101,19 @@ namespace DAL
 			}
 		}
 		
-		public System.Data.Linq.Table<MsPenjualan> MsPenjualans
-		{
-			get
-			{
-				return this.GetTable<MsPenjualan>();
-			}
-		}
-		
 		public System.Data.Linq.Table<MsProgram> MsPrograms
 		{
 			get
 			{
 				return this.GetTable<MsProgram>();
+			}
+		}
+		
+		public System.Data.Linq.Table<MsPenjualan> MsPenjualans
+		{
+			get
+			{
+				return this.GetTable<MsPenjualan>();
 			}
 		}
 	}
@@ -764,181 +764,6 @@ namespace DAL
 		}
 	}
 	
-	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.MsPenjualan")]
-	public partial class MsPenjualan : INotifyPropertyChanging, INotifyPropertyChanged
-	{
-		
-		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
-		
-		private string _idPenjualan;
-		
-		private string _idCustomer;
-		
-		private System.DateTime _tglTrans;
-		
-		private string _detail;
-		
-		private EntityRef<MsCustomer> _MsCustomer;
-		
-    #region Extensibility Method Definitions
-    partial void OnLoaded();
-    partial void OnValidate(System.Data.Linq.ChangeAction action);
-    partial void OnCreated();
-    partial void OnidPenjualanChanging(string value);
-    partial void OnidPenjualanChanged();
-    partial void OnidCustomerChanging(string value);
-    partial void OnidCustomerChanged();
-    partial void OntglTransChanging(System.DateTime value);
-    partial void OntglTransChanged();
-    partial void OndetailChanging(string value);
-    partial void OndetailChanged();
-    #endregion
-		
-		public MsPenjualan()
-		{
-			this._MsCustomer = default(EntityRef<MsCustomer>);
-			OnCreated();
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_idPenjualan", DbType="Char(10) NOT NULL", CanBeNull=false, IsPrimaryKey=true)]
-		public string idPenjualan
-		{
-			get
-			{
-				return this._idPenjualan;
-			}
-			set
-			{
-				if ((this._idPenjualan != value))
-				{
-					this.OnidPenjualanChanging(value);
-					this.SendPropertyChanging();
-					this._idPenjualan = value;
-					this.SendPropertyChanged("idPenjualan");
-					this.OnidPenjualanChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_idCustomer", DbType="Char(10) NOT NULL", CanBeNull=false)]
-		public string idCustomer
-		{
-			get
-			{
-				return this._idCustomer;
-			}
-			set
-			{
-				if ((this._idCustomer != value))
-				{
-					if (this._MsCustomer.HasLoadedOrAssignedValue)
-					{
-						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
-					}
-					this.OnidCustomerChanging(value);
-					this.SendPropertyChanging();
-					this._idCustomer = value;
-					this.SendPropertyChanged("idCustomer");
-					this.OnidCustomerChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_tglTrans", DbType="DateTime NOT NULL")]
-		public System.DateTime tglTrans
-		{
-			get
-			{
-				return this._tglTrans;
-			}
-			set
-			{
-				if ((this._tglTrans != value))
-				{
-					this.OntglTransChanging(value);
-					this.SendPropertyChanging();
-					this._tglTrans = value;
-					this.SendPropertyChanged("tglTrans");
-					this.OntglTransChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_detail", DbType="VarChar(MAX) NOT NULL", CanBeNull=false)]
-		public string detail
-		{
-			get
-			{
-				return this._detail;
-			}
-			set
-			{
-				if ((this._detail != value))
-				{
-					this.OndetailChanging(value);
-					this.SendPropertyChanging();
-					this._detail = value;
-					this.SendPropertyChanged("detail");
-					this.OndetailChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="MsCustomer_MsPenjualan", Storage="_MsCustomer", ThisKey="idCustomer", OtherKey="idCustomer", IsForeignKey=true)]
-		public MsCustomer MsCustomer
-		{
-			get
-			{
-				return this._MsCustomer.Entity;
-			}
-			set
-			{
-				MsCustomer previousValue = this._MsCustomer.Entity;
-				if (((previousValue != value) 
-							|| (this._MsCustomer.HasLoadedOrAssignedValue == false)))
-				{
-					this.SendPropertyChanging();
-					if ((previousValue != null))
-					{
-						this._MsCustomer.Entity = null;
-						previousValue.MsPenjualans.Remove(this);
-					}
-					this._MsCustomer.Entity = value;
-					if ((value != null))
-					{
-						value.MsPenjualans.Add(this);
-						this._idCustomer = value.idCustomer;
-					}
-					else
-					{
-						this._idCustomer = default(string);
-					}
-					this.SendPropertyChanged("MsCustomer");
-				}
-			}
-		}
-		
-		public event PropertyChangingEventHandler PropertyChanging;
-		
-		public event PropertyChangedEventHandler PropertyChanged;
-		
-		protected virtual void SendPropertyChanging()
-		{
-			if ((this.PropertyChanging != null))
-			{
-				this.PropertyChanging(this, emptyChangingEventArgs);
-			}
-		}
-		
-		protected virtual void SendPropertyChanged(String propertyName)
-		{
-			if ((this.PropertyChanged != null))
-			{
-				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
-			}
-		}
-	}
-	
 	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.MsProgram")]
 	public partial class MsProgram : INotifyPropertyChanging, INotifyPropertyChanged
 	{
@@ -1120,6 +945,181 @@ namespace DAL
 					this._technology = value;
 					this.SendPropertyChanged("technology");
 					this.OntechnologyChanged();
+				}
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.MsPenjualan")]
+	public partial class MsPenjualan : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private string _idPenjualan;
+		
+		private string _idCustomer;
+		
+		private System.DateTime _tglTrans;
+		
+		private string _detail;
+		
+		private EntityRef<MsCustomer> _MsCustomer;
+		
+    #region Extensibility Method Definitions
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnidPenjualanChanging(string value);
+    partial void OnidPenjualanChanged();
+    partial void OnidCustomerChanging(string value);
+    partial void OnidCustomerChanged();
+    partial void OntglTransChanging(System.DateTime value);
+    partial void OntglTransChanged();
+    partial void OndetailChanging(string value);
+    partial void OndetailChanged();
+    #endregion
+		
+		public MsPenjualan()
+		{
+			this._MsCustomer = default(EntityRef<MsCustomer>);
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_idPenjualan", DbType="Char(10) NOT NULL", CanBeNull=false, IsPrimaryKey=true)]
+		public string idPenjualan
+		{
+			get
+			{
+				return this._idPenjualan;
+			}
+			set
+			{
+				if ((this._idPenjualan != value))
+				{
+					this.OnidPenjualanChanging(value);
+					this.SendPropertyChanging();
+					this._idPenjualan = value;
+					this.SendPropertyChanged("idPenjualan");
+					this.OnidPenjualanChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_idCustomer", DbType="Char(10) NOT NULL", CanBeNull=false)]
+		public string idCustomer
+		{
+			get
+			{
+				return this._idCustomer;
+			}
+			set
+			{
+				if ((this._idCustomer != value))
+				{
+					if (this._MsCustomer.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.OnidCustomerChanging(value);
+					this.SendPropertyChanging();
+					this._idCustomer = value;
+					this.SendPropertyChanged("idCustomer");
+					this.OnidCustomerChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_tglTrans", DbType="DateTime NOT NULL")]
+		public System.DateTime tglTrans
+		{
+			get
+			{
+				return this._tglTrans;
+			}
+			set
+			{
+				if ((this._tglTrans != value))
+				{
+					this.OntglTransChanging(value);
+					this.SendPropertyChanging();
+					this._tglTrans = value;
+					this.SendPropertyChanged("tglTrans");
+					this.OntglTransChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_detail", DbType="VarChar(MAX) NOT NULL", CanBeNull=false)]
+		public string detail
+		{
+			get
+			{
+				return this._detail;
+			}
+			set
+			{
+				if ((this._detail != value))
+				{
+					this.OndetailChanging(value);
+					this.SendPropertyChanging();
+					this._detail = value;
+					this.SendPropertyChanged("detail");
+					this.OndetailChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="MsCustomer_MsPenjualan", Storage="_MsCustomer", ThisKey="idCustomer", OtherKey="idCustomer", IsForeignKey=true)]
+		public MsCustomer MsCustomer
+		{
+			get
+			{
+				return this._MsCustomer.Entity;
+			}
+			set
+			{
+				MsCustomer previousValue = this._MsCustomer.Entity;
+				if (((previousValue != value) 
+							|| (this._MsCustomer.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._MsCustomer.Entity = null;
+						previousValue.MsPenjualans.Remove(this);
+					}
+					this._MsCustomer.Entity = value;
+					if ((value != null))
+					{
+						value.MsPenjualans.Add(this);
+						this._idCustomer = value.idCustomer;
+					}
+					else
+					{
+						this._idCustomer = default(string);
+					}
+					this.SendPropertyChanged("MsCustomer");
 				}
 			}
 		}

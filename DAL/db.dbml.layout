@@ -20,23 +20,23 @@
         <elementListCompartment Id="3af89d3e-bff3-4bb5-8e28-1f4674ddf8fb" absoluteBounds="0.765, 1.46, 1.9700000000000002, 2.5570068359375" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
       </nestedChildShapes>
     </classShape>
-    <classShape Id="a6a83121-4699-4d5d-9856-8e009c025714" absoluteBounds="3.5, 1.75, 2, 1.5785953776041666">
-      <DataClassMoniker Name="/dbDataContext/MsPenjualan" />
-      <nestedChildShapes>
-        <elementListCompartment Id="5b8bd96b-00d5-49fe-a1ec-80dcfe4d2e99" absoluteBounds="3.515, 2.21, 1.9700000000000002, 1.0185953776041665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
-      </nestedChildShapes>
-    </classShape>
     <classShape Id="e6efde5a-930f-4915-8671-a6fd7996ac08" absoluteBounds="6.75, 3.75, 2, 2.1554996744791666">
       <DataClassMoniker Name="/dbDataContext/MsProgram" />
       <nestedChildShapes>
         <elementListCompartment Id="a13cb4b4-9cc9-4b4c-938b-17ae53af656f" absoluteBounds="6.765, 4.21, 1.9700000000000002, 1.5954996744791665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
       </nestedChildShapes>
     </classShape>
-    <associationConnector edgePoints="[(2.75 : 2.53929768880208); (3.5 : 2.53929768880208)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+    <classShape Id="449c21c4-180b-4636-b7bd-c73c98fe9932" absoluteBounds="3.75, 1.125, 2, 1.5785953776041666">
+      <DataClassMoniker Name="/dbDataContext/MsPenjualan" />
+      <nestedChildShapes>
+        <elementListCompartment Id="3a489045-0ba5-439b-972f-14ff8bc587e4" absoluteBounds="3.7649999999999997, 1.585, 1.9700000000000002, 1.0185953776041665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <associationConnector edgePoints="[(2.75 : 1.91429768880208); (3.75 : 1.91429768880208)]" fixedFrom="Algorithm" fixedTo="Algorithm">
       <AssociationMoniker Name="/dbDataContext/MsCustomer/MsCustomer_MsPenjualan" />
       <nodes>
         <classShapeMoniker Id="67b9f2f9-1ba4-43c6-b05e-969863821b1f" />
-        <classShapeMoniker Id="a6a83121-4699-4d5d-9856-8e009c025714" />
+        <classShapeMoniker Id="449c21c4-180b-4636-b7bd-c73c98fe9932" />
       </nodes>
     </associationConnector>
   </nestedChildShapes>

@@ -171,8 +171,14 @@ namespace DAL
             var hasil = (from baris in db.MsCustomers
                          orderby baris.idCustomer descending
                          select  baris).First();
-
-            return Convert.ToInt32(hasil.idCustomer);
+            if (hasil == null)
+            {
+                return 1;
+            }
+            else
+            {
+                return Convert.ToInt32(hasil.idCustomer);
+            }
         }
 
     }

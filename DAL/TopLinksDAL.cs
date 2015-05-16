@@ -14,7 +14,7 @@ namespace DAL
             //TopLink top = new TopLink();
 
             var hasil = from baris in db.TopLinks
-                        where baris.status == 1
+                        where baris.level <= level && baris.status != 0
                         //where baris.status <= level
                         select baris;
             

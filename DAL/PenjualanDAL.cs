@@ -11,7 +11,7 @@ namespace DAL
         public bool AddPenjualan(MsPenjualan baru)
         {
             dbDataContext db = new dbDataContext();
-            
+
             db.MsPenjualans.InsertOnSubmit(baru);
 
             try
@@ -77,6 +77,18 @@ namespace DAL
             }
         }
 
+        public int GetNextId()
+        {
+            dbDataContext db = new dbDataContext();
+            var hasil = (from baris in db.MsPenjualans
+                         orderby baris.idPenjualan descending
+                         select baris).First();
+            if (hasil == null)
+            { return 1; }
+            else
+            { return Convert.ToInt32(hasil.idPenjualan) + 1; }
+            
+        }
 
         public bool DeletePenjualan(string id)
         {
@@ -84,7 +96,6 @@ namespace DAL
             var hapus = (from baris in db.MsPenjualans
                          where baris.idPenjualan == id
                          select baris).SingleOrDefault();
-
             if (hapus != null)
             {
                 db.MsPenjualans.DeleteOnSubmit(hapus);
