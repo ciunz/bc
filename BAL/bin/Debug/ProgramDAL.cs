@@ -63,6 +63,8 @@ namespace DAL
                 hasil.rating = pro.rating;
                 hasil.img = pro.img;
                 hasil.date = pro.date;
+                hasil.os = pro.os;
+                hasil.license = pro.license;
                 hasil.technology = pro.technology;
                 try
                 {

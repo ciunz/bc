@@ -40,6 +40,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CommentBAL.cs" />
+    <Compile Include="MsCommentBAL.cs" />
     <Compile Include="MsPenjualanBAL.cs" />
     <Compile Include="MsProgramBAL.cs" />
     <Compile Include="MsUserBAL.cs" />

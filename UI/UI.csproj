@@ -57,7 +57,7 @@
     <Content Include="TopLink\AddTopLink.aspx" />
     <Content Include="Program\AllProgram.aspx" />
     <Content Include="User\AllUser.aspx" />
-    <Content Include="ChgPwd.aspx" />
+    <Content Include="User\ChgPwd.aspx" />
     <Content Include="css\owl.carousel.css" />
     <Content Include="css\productviewgallery.css" />
     <Content Include="css\slider.css" />
@@ -150,7 +150,7 @@
     <Content Include="images\w_pic5.jpg" />
     <Content Include="images\w_pic6.jpg" />
     <Content Include="index.aspx" />
-    <Content Include="InputProgram.aspx" />
+    <Content Include="Program\InputProgram.aspx" />
     <Content Include="js\cloud-zoom.1.0.3.min.js" />
     <Content Include="js\easing.js" />
     <Content Include="js\fliplightbox.min.js" />
@@ -229,11 +229,11 @@
     <Compile Include="User\AllUser.aspx.designer.cs">
       <DependentUpon>AllUser.aspx</DependentUpon>
     </Compile>
-    <Compile Include="ChgPwd.aspx.cs">
+    <Compile Include="User\ChgPwd.aspx.cs">
       <DependentUpon>ChgPwd.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="ChgPwd.aspx.designer.cs">
+    <Compile Include="User\ChgPwd.aspx.designer.cs">
       <DependentUpon>ChgPwd.aspx</DependentUpon>
     </Compile>
     <Compile Include="Program\details.aspx.cs">
@@ -257,11 +257,11 @@
     <Compile Include="index.aspx.designer.cs">
       <DependentUpon>index.aspx</DependentUpon>
     </Compile>
-    <Compile Include="InputProgram.aspx.cs">
+    <Compile Include="Program\InputProgram.aspx.cs">
       <DependentUpon>InputProgram.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="InputProgram.aspx.designer.cs">
+    <Compile Include="Program\InputProgram.aspx.designer.cs">
       <DependentUpon>InputProgram.aspx</DependentUpon>
     </Compile>
     <Compile Include="Logout.aspx.cs">

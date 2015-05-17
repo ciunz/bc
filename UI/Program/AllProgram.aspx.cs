@@ -11,7 +11,10 @@ namespace UI
     public partial class AllProgram : System.Web.UI.Page
     {
         protected void Page_Load(object sender, EventArgs e)
-        {          
+        {
+            if (Session["username"] == null || Session["lvl"] == null)
+            { Response.Redirect("/home.aspx"); }
+
             ProgramBAL bal = new ProgramBAL();
             List<MsProgramBAL> lb = new List<MsProgramBAL>();
             lb = bal.GetProgramList();
@@ -38,7 +41,6 @@ namespace UI
                         isi += "</div>" + "<div class='clear'></div>" + "<div class='grids_of_3'>";
                     }
                 }
-
                 isi += "</div>";
                 isi += "<div class='clear'></div>";
 

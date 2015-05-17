@@ -30,12 +30,15 @@ namespace DAL
 		
     #region Extensibility Method Definitions
     partial void OnCreated();
-    partial void InsertTopLink(TopLink instance);
-    partial void UpdateTopLink(TopLink instance);
-    partial void DeleteTopLink(TopLink instance);
     partial void InsertMsCD(MsCD instance);
     partial void UpdateMsCD(MsCD instance);
     partial void DeleteMsCD(MsCD instance);
+    partial void InsertTopLink(TopLink instance);
+    partial void UpdateTopLink(TopLink instance);
+    partial void DeleteTopLink(TopLink instance);
+    partial void InsertMsComment(MsComment instance);
+    partial void UpdateMsComment(MsComment instance);
+    partial void DeleteMsComment(MsComment instance);
     partial void InsertMsCustomer(MsCustomer instance);
     partial void UpdateMsCustomer(MsCustomer instance);
     partial void DeleteMsCustomer(MsCustomer instance);
@@ -77,6 +80,14 @@ namespace DAL
 			OnCreated();
 		}
 		
+		public System.Data.Linq.Table<MsCD> MsCDs
+		{
+			get
+			{
+				return this.GetTable<MsCD>();
+			}
+		}
+		
 		public System.Data.Linq.Table<TopLink> TopLinks
 		{
 			get
@@ -85,11 +96,11 @@ namespace DAL
 			}
 		}
 		
-		public System.Data.Linq.Table<MsCD> MsCDs
+		public System.Data.Linq.Table<MsComment> MsComments
 		{
 			get
 			{
-				return this.GetTable<MsCD>();
+				return this.GetTable<MsComment>();
 			}
 		}
 		
@@ -114,6 +125,140 @@ namespace DAL
 			get
 			{
 				return this.GetTable<MsProgram>();
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.MsCD")]
+	public partial class MsCD : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private string _idCD;
+		
+		private char _status;
+		
+		private int _ukuran;
+		
+		private int _biaya;
+		
+    #region Extensibility Method Definitions
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnidCDChanging(string value);
+    partial void OnidCDChanged();
+    partial void OnstatusChanging(char value);
+    partial void OnstatusChanged();
+    partial void OnukuranChanging(int value);
+    partial void OnukuranChanged();
+    partial void OnbiayaChanging(int value);
+    partial void OnbiayaChanged();
+    #endregion
+		
+		public MsCD()
+		{
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_idCD", DbType="Char(10) NOT NULL", CanBeNull=false, IsPrimaryKey=true)]
+		public string idCD
+		{
+			get
+			{
+				return this._idCD;
+			}
+			set
+			{
+				if ((this._idCD != value))
+				{
+					this.OnidCDChanging(value);
+					this.SendPropertyChanging();
+					this._idCD = value;
+					this.SendPropertyChanged("idCD");
+					this.OnidCDChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_status", DbType="Char(1) NOT NULL")]
+		public char status
+		{
+			get
+			{
+				return this._status;
+			}
+			set
+			{
+				if ((this._status != value))
+				{
+					this.OnstatusChanging(value);
+					this.SendPropertyChanging();
+					this._status = value;
+					this.SendPropertyChanged("status");
+					this.OnstatusChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ukuran", DbType="Int NOT NULL")]
+		public int ukuran
+		{
+			get
+			{
+				return this._ukuran;
+			}
+			set
+			{
+				if ((this._ukuran != value))
+				{
+					this.OnukuranChanging(value);
+					this.SendPropertyChanging();
+					this._ukuran = value;
+					this.SendPropertyChanged("ukuran");
+					this.OnukuranChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_biaya", DbType="Int NOT NULL")]
+		public int biaya
+		{
+			get
+			{
+				return this._biaya;
+			}
+			set
+			{
+				if ((this._biaya != value))
+				{
+					this.OnbiayaChanging(value);
+					this.SendPropertyChanging();
+					this._biaya = value;
+					this.SendPropertyChanged("biaya");
+					this.OnbiayaChanged();
+				}
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
 			}
 		}
 	}
@@ -276,115 +421,197 @@ namespace DAL
 		}
 	}
 	
-	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.MsCD")]
-	public partial class MsCD : INotifyPropertyChanging, INotifyPropertyChanged
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.MsComment")]
+	public partial class MsComment : INotifyPropertyChanging, INotifyPropertyChanged
 	{
 		
 		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
 		
-		private string _idCD;
+		private string _idComment;
 		
-		private char _status;
+		private string _idProgram;
 		
-		private int _ukuran;
+		private string _idCustomer;
 		
-		private int _biaya;
+		private string _Comment;
+		
+		private EntityRef<MsCustomer> _MsCustomer;
+		
+		private EntityRef<MsProgram> _MsProgram;
 		
     #region Extensibility Method Definitions
     partial void OnLoaded();
     partial void OnValidate(System.Data.Linq.ChangeAction action);
     partial void OnCreated();
-    partial void OnidCDChanging(string value);
-    partial void OnidCDChanged();
-    partial void OnstatusChanging(char value);
-    partial void OnstatusChanged();
-    partial void OnukuranChanging(int value);
-    partial void OnukuranChanged();
-    partial void OnbiayaChanging(int value);
-    partial void OnbiayaChanged();
+    partial void OnidCommentChanging(string value);
+    partial void OnidCommentChanged();
+    partial void OnidProgramChanging(string value);
+    partial void OnidProgramChanged();
+    partial void OnidCustomerChanging(string value);
+    partial void OnidCustomerChanged();
+    partial void OnCommentChanging(string value);
+    partial void OnCommentChanged();
     #endregion
 		
-		public MsCD()
+		public MsComment()
 		{
+			this._MsCustomer = default(EntityRef<MsCustomer>);
+			this._MsProgram = default(EntityRef<MsProgram>);
 			OnCreated();
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_idCD", DbType="Char(10) NOT NULL", CanBeNull=false, IsPrimaryKey=true)]
-		public string idCD
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_idComment", DbType="Char(10) NOT NULL", CanBeNull=false, IsPrimaryKey=true)]
+		public string idComment
 		{
 			get
 			{
-				return this._idCD;
+				return this._idComment;
 			}
 			set
 			{
-				if ((this._idCD != value))
+				if ((this._idComment != value))
 				{
-					this.OnidCDChanging(value);
+					if (this._MsCustomer.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.OnidCommentChanging(value);
 					this.SendPropertyChanging();
-					this._idCD = value;
-					this.SendPropertyChanged("idCD");
-					this.OnidCDChanged();
+					this._idComment = value;
+					this.SendPropertyChanged("idComment");
+					this.OnidCommentChanged();
 				}
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_status", DbType="Char(1) NOT NULL")]
-		public char status
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_idProgram", DbType="Char(10) NOT NULL", CanBeNull=false)]
+		public string idProgram
 		{
 			get
 			{
-				return this._status;
+				return this._idProgram;
 			}
 			set
 			{
-				if ((this._status != value))
+				if ((this._idProgram != value))
 				{
-					this.OnstatusChanging(value);
+					if (this._MsProgram.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.OnidProgramChanging(value);
 					this.SendPropertyChanging();
-					this._status = value;
-					this.SendPropertyChanged("status");
-					this.OnstatusChanged();
+					this._idProgram = value;
+					this.SendPropertyChanged("idProgram");
+					this.OnidProgramChanged();
 				}
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ukuran", DbType="Int NOT NULL")]
-		public int ukuran
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_idCustomer", DbType="Char(10) NOT NULL", CanBeNull=false)]
+		public string idCustomer
 		{
 			get
 			{
-				return this._ukuran;
+				return this._idCustomer;
 			}
 			set
 			{
-				if ((this._ukuran != value))
+				if ((this._idCustomer != value))
 				{
-					this.OnukuranChanging(value);
+					this.OnidCustomerChanging(value);
 					this.SendPropertyChanging();
-					this._ukuran = value;
-					this.SendPropertyChanged("ukuran");
-					this.OnukuranChanged();
+					this._idCustomer = value;
+					this.SendPropertyChanged("idCustomer");
+					this.OnidCustomerChanged();
 				}
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_biaya", DbType="Int NOT NULL")]
-		public int biaya
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Comment", DbType="VarChar(MAX) NOT NULL", CanBeNull=false)]
+		public string Comment
 		{
 			get
 			{
-				return this._biaya;
+				return this._Comment;
 			}
 			set
 			{
-				if ((this._biaya != value))
+				if ((this._Comment != value))
 				{
-					this.OnbiayaChanging(value);
+					this.OnCommentChanging(value);
 					this.SendPropertyChanging();
-					this._biaya = value;
-					this.SendPropertyChanged("biaya");
-					this.OnbiayaChanged();
+					this._Comment = value;
+					this.SendPropertyChanged("Comment");
+					this.OnCommentChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="MsCustomer_MsComment", Storage="_MsCustomer", ThisKey="idComment", OtherKey="idCustomer", IsForeignKey=true)]
+		public MsCustomer MsCustomer
+		{
+			get
+			{
+				return this._MsCustomer.Entity;
+			}
+			set
+			{
+				MsCustomer previousValue = this._MsCustomer.Entity;
+				if (((previousValue != value) 
+							|| (this._MsCustomer.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._MsCustomer.Entity = null;
+						previousValue.MsComment = null;
+					}
+					this._MsCustomer.Entity = value;
+					if ((value != null))
+					{
+						value.MsComment = this;
+						this._idComment = value.idCustomer;
+					}
+					else
+					{
+						this._idComment = default(string);
+					}
+					this.SendPropertyChanged("MsCustomer");
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="MsProgram_MsComment", Storage="_MsProgram", ThisKey="idProgram", OtherKey="idProgram", IsForeignKey=true)]
+		public MsProgram MsProgram
+		{
+			get
+			{
+				return this._MsProgram.Entity;
+			}
+			set
+			{
+				MsProgram previousValue = this._MsProgram.Entity;
+				if (((previousValue != value) 
+							|| (this._MsProgram.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._MsProgram.Entity = null;
+						previousValue.MsComments.Remove(this);
+					}
+					this._MsProgram.Entity = value;
+					if ((value != null))
+					{
+						value.MsComments.Add(this);
+						this._idProgram = value.idProgram;
+					}
+					else
+					{
+						this._idProgram = default(string);
+					}
+					this.SendPropertyChanged("MsProgram");
 				}
 			}
 		}
@@ -440,6 +667,8 @@ namespace DAL
 		
 		private int _lvl;
 		
+		private EntityRef<MsComment> _MsComment;
+		
 		private EntitySet<MsPenjualan> _MsPenjualans;
 		
     #region Extensibility Method Definitions
@@ -474,6 +703,7 @@ namespace DAL
 		
 		public MsCustomer()
 		{
+			this._MsComment = default(EntityRef<MsComment>);
 			this._MsPenjualans = new EntitySet<MsPenjualan>(new Action<MsPenjualan>(this.attach_MsPenjualans), new Action<MsPenjualan>(this.detach_MsPenjualans));
 			OnCreated();
 		}
@@ -498,7 +728,7 @@ namespace DAL
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_nama", DbType="VarChar(50) NOT NULL", CanBeNull=false)]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_nama", DbType="VarChar(50)")]
 		public string nama
 		{
 			get
@@ -638,7 +868,7 @@ namespace DAL
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_provinsi", DbType="VarChar(50) NOT NULL", CanBeNull=false)]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_provinsi", DbType="VarChar(50)")]
 		public string provinsi
 		{
 			get
@@ -658,7 +888,7 @@ namespace DAL
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_kota", DbType="VarChar(50) NOT NULL", CanBeNull=false)]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_kota", DbType="VarChar(50)")]
 		public string kota
 		{
 			get
@@ -714,6 +944,35 @@ namespace DAL
 					this._lvl = value;
 					this.SendPropertyChanged("lvl");
 					this.OnlvlChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="MsCustomer_MsComment", Storage="_MsComment", ThisKey="idCustomer", OtherKey="idComment", IsUnique=true, IsForeignKey=false)]
+		public MsComment MsComment
+		{
+			get
+			{
+				return this._MsComment.Entity;
+			}
+			set
+			{
+				MsComment previousValue = this._MsComment.Entity;
+				if (((previousValue != value) 
+							|| (this._MsComment.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._MsComment.Entity = null;
+						previousValue.MsCustomer = null;
+					}
+					this._MsComment.Entity = value;
+					if ((value != null))
+					{
+						value.MsCustomer = this;
+					}
+					this.SendPropertyChanged("MsComment");
 				}
 			}
 		}
@@ -953,13 +1212,19 @@ namespace DAL
 		
 		private int _size;
 		
-		private System.Nullable<int> _rating;
+		private System.Nullable<double> _rating;
 		
 		private string _img;
 		
 		private System.Nullable<System.DateTime> _date;
 		
+		private string _os;
+		
+		private string _license;
+		
 		private string _technology;
+		
+		private EntitySet<MsComment> _MsComments;
 		
     #region Extensibility Method Definitions
     partial void OnLoaded();
@@ -973,18 +1238,23 @@ namespace DAL
     partial void OndescrChanged();
     partial void OnsizeChanging(int value);
     partial void OnsizeChanged();
-    partial void OnratingChanging(System.Nullable<int> value);
+    partial void OnratingChanging(System.Nullable<double> value);
     partial void OnratingChanged();
     partial void OnimgChanging(string value);
     partial void OnimgChanged();
     partial void OndateChanging(System.Nullable<System.DateTime> value);
     partial void OndateChanged();
+    partial void OnosChanging(string value);
+    partial void OnosChanged();
+    partial void OnlicenseChanging(string value);
+    partial void OnlicenseChanged();
     partial void OntechnologyChanging(string value);
     partial void OntechnologyChanged();
     #endregion
 		
 		public MsProgram()
 		{
+			this._MsComments = new EntitySet<MsComment>(new Action<MsComment>(this.attach_MsComments), new Action<MsComment>(this.detach_MsComments));
 			OnCreated();
 		}
 		
@@ -1068,8 +1338,8 @@ namespace DAL
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_rating", DbType="Int")]
-		public System.Nullable<int> rating
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_rating", DbType="Float")]
+		public System.Nullable<double> rating
 		{
 			get
 			{
@@ -1128,6 +1398,46 @@ namespace DAL
 			}
 		}
 		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_os", DbType="VarChar(50)")]
+		public string os
+		{
+			get
+			{
+				return this._os;
+			}
+			set
+			{
+				if ((this._os != value))
+				{
+					this.OnosChanging(value);
+					this.SendPropertyChanging();
+					this._os = value;
+					this.SendPropertyChanged("os");
+					this.OnosChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_license", DbType="VarChar(50)")]
+		public string license
+		{
+			get
+			{
+				return this._license;
+			}
+			set
+			{
+				if ((this._license != value))
+				{
+					this.OnlicenseChanging(value);
+					this.SendPropertyChanging();
+					this._license = value;
+					this.SendPropertyChanged("license");
+					this.OnlicenseChanged();
+				}
+			}
+		}
+		
 		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_technology", DbType="VarChar(50) NOT NULL", CanBeNull=false)]
 		public string technology
 		{
@@ -1145,6 +1455,19 @@ namespace DAL
 					this.SendPropertyChanged("technology");
 					this.OntechnologyChanged();
 				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="MsProgram_MsComment", Storage="_MsComments", ThisKey="idProgram", OtherKey="idProgram")]
+		public EntitySet<MsComment> MsComments
+		{
+			get
+			{
+				return this._MsComments;
+			}
+			set
+			{
+				this._MsComments.Assign(value);
 			}
 		}
 		
@@ -1166,6 +1489,18 @@ namespace DAL
 			{
 				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
 			}
+		}
+		
+		private void attach_MsComments(MsComment entity)
+		{
+			this.SendPropertyChanging();
+			entity.MsProgram = this;
+		}
+		
+		private void detach_MsComments(MsComment entity)
+		{
+			this.SendPropertyChanging();
+			entity.MsProgram = null;
 		}
 	}
 }

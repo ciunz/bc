@@ -936,6 +936,53 @@ p.para{
 	background: #555555;
 	color: #ffffff;
 }
+
+.comm input[type="text"], .comm textarea {
+	font-family: 'Source Sans Pro', sans-serif;
+	background: #FFFFFF;
+	border: 1px solid #E7E7E7;
+	color: rgba(85, 81, 81, 0.84);
+	padding: 8px;
+	display: block;
+	width: 93%;
+	outline: none;
+	-webkit-appearance: none;
+	text-transform: capitalize;
+}
+
+.comm
+{
+    padding: 5px 20px 15px 20px;
+}
+.comm2
+{
+    padding: 15px 20px ;
+}
+
+.comm2 input[type="submit"] {
+	margin : auto;
+	width : 100%;
+	font-family: 'Source Sans Pro', sans-serif;
+	-webkit-appearance: none;
+	cursor:pointer;
+	color: #ffffff;
+	background: #3CC395;
+	border:none;
+	outline:none;
+	display: inline-block;
+	text-transform: uppercase;
+	padding: 12px 38px;
+	font-size: 0.875em;
+	-webkit-transition: all 0.3s ease-in-out;
+	-moz-transition: all 0.3s ease-in-out;
+	-o-transition: all 0.3s ease-in-out;
+	transition: all 0.3s ease-in-out;
+}
+
+.comm2 input[type="submit"]:hover{
+	background: #555555;
+	color: #ffffff;
+}
 /*-- start details--*/
 .single{
 	padding:2% 0;
@@ -959,7 +1006,9 @@ p.para{
 	margin-left: 3.333%;
 }
 /* start desc1 */
-.desc1 {
+.desc1 
+{  
+	width: 100%;
 	font-family: 'Source Sans Pro', sans-serif;
 	display: block;
 	float: right;

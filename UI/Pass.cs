@@ -7,13 +7,15 @@ namespace UI
 {
     public class Pass
     {
-        bool status
-        { get; set; }
-
-        public Pass()
+        public string AddZero(string id)
         {
- 
+            int qty = 10 - id.Length;
+            string zero = "";
+            for (int i = 1; i <= qty; i++)
+            {
+                zero += "0";
+            }
+            return zero;
         }
-
     }
 }

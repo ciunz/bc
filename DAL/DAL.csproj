@@ -42,6 +42,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="CDDAL.cs" />
+    <Compile Include="CommentDAL.cs" />
     <Compile Include="db.cs" />
     <Compile Include="db.designer.cs">
       <AutoGen>True</AutoGen>

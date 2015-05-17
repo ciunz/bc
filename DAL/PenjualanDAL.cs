@@ -15,14 +15,9 @@ namespace DAL
             db.MsPenjualans.InsertOnSubmit(baru);
 
             try
-            {
-                db.SubmitChanges();
-                return true;
-            }
+            { db.SubmitChanges(); return true; }
             catch
-            {
-                return false;
-            }
+            { return false; }
         }
 
         public List<MsPenjualan> GetPenjualanList()
@@ -61,14 +56,9 @@ namespace DAL
                 hasil.tglTrans = p.tglTrans;
                 hasil.detail = p.detail;
                 try
-                {
-                    db.SubmitChanges();
-                    return true;
-                }
+                { db.SubmitChanges(); return true; }
                 catch
-                {
-                    return false;
-                }
+                { return false; }
 
             }
             else
@@ -87,7 +77,7 @@ namespace DAL
             { return 1; }
             else
             { return Convert.ToInt32(hasil.idPenjualan) + 1; }
-            
+
         }
 
         public bool DeletePenjualan(string id)
@@ -100,14 +90,9 @@ namespace DAL
             {
                 db.MsPenjualans.DeleteOnSubmit(hapus);
                 try
-                {
-                    db.SubmitChanges();
-                    return true;
-                }
+                { db.SubmitChanges(); return true; }
                 catch
-                {
-                    return false;
-                }
+                { return false; }
             }
             else
             {

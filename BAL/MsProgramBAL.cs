@@ -16,11 +16,15 @@ namespace BAL
         { get; set; }
         public int size
         { get; set; }
-        public int rating
+        public float rating
         { get; set; }
         public string img
         { get; set; }
         public string date
+        { get; set; }
+        public string os
+        { get; set; }
+        public string license
         { get; set; }
         public string technology
         { get; set; }
@@ -34,9 +38,11 @@ namespace BAL
                 title = pro.title,
                 descr = pro.descr,
                 size = pro.size,
-                rating = Convert.ToInt32(pro.rating),
+                //rating = float.Parse(pro.rating.ToString()),
                 img = pro.img,
                 date = pro.date.ToString(),
+                os = pro.os,
+                license = pro.license,
                 technology = pro.technology
             };
             return baru;
@@ -50,9 +56,11 @@ namespace BAL
                 title = pro.title,
                 descr = pro.descr,
                 size = pro.size,
-                rating = Convert.ToInt32(pro.rating),
+                rating = pro.rating,
                 img = pro.img,
                 date = Convert.ToDateTime(pro.date),
+                os = pro.os,
+                license = pro.license,
                 technology = pro.technology
             };
             return baru;
