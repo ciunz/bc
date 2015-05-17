@@ -32,16 +32,20 @@ namespace UI
             gambar.Alt = title;
             descr.InnerHtml += b.descr;
             rating.InnerHtml += b.rating;
-
+            ra.InnerHtml = b.rating.ToString().Substring(0,4);
+            
             //ambil comment
+
             CommentBAL com = new CommentBAL();
             List<MsCommentBAL> mc = new List<MsCommentBAL>();
+            UserBAL ubal = new UserBAL();
+            komentar.InnerHtml = "";
             mc = com.GetCommentsByProduct(id);
-            string comment = "<li><a href='#'>No Comment Yet</a></li>";
+            string comment = "";
             if (mc != null)
             {
                 foreach (MsCommentBAL cb in mc)
-                { comment += "<li><a href='#'>" + cb.Comment + "</a></li>"; }
+                { comment += "<li><a href='#'>&quot;" + cb.Comment + "&quot;<br>" + ubal.GetUserById(cb.idCustomer).username + "</a></li>"; }
                 komentar.InnerHtml += comment;
             }
             else
@@ -64,6 +68,49 @@ namespace UI
             Session["order"] = order;
 
             Response.Redirect("AllProgram.aspx");
+        }
+
+        protected void Button2_Click(object sender, EventArgs e)
+        {
+            if (ta.Value.Trim() == "" || ta.Value == null)
+            { Response.Write("<script>alert('Empty Comment')</script>"); }
+            else if (IsPostBack)
+            {
+                CommentBAL bal = new CommentBAL();
+                UserBAL ub = new UserBAL();
+                Pass p = new Pass();
+                MsCommentBAL cb = new MsCommentBAL()
+                {
+                    idProgram = Request.QueryString["id"],
+                    idCustomer = ub.getUserByUsername(Convert.ToString(Session["username"])).idCustomer,
+                    Comment = ta.Value,
+                    idComment = p.AddZero(p.AddZero(bal.GetNextId())),
+                };
+                if (bal.AddComment(cb))
+                {
+                    Response.Write("<script>alert('Comment Success')</script>");
+                    Response.Redirect("/Program/details.aspx?id=" + Request.QueryString["id"]);
+                }
+                else { Response.Write("<script>alert('Comment Failed')</script>"); }
+            }
+        }
+
+        protected void Button3_Click(object sender, EventArgs e)
+        {
+            ProgramBAL bal = new ProgramBAL();
+            string id = Request.QueryString["id"];
+            MsProgramBAL probal = new MsProgramBAL();
+            double rating = bal.getProgramById(id).rating;
+            if (rate.SelectedIndex == 0 || Convert.ToInt32(rate.Value) < 1 || Convert.ToInt32(rate.Value) > 5)
+            {
+                Response.Write("<script>alert('Failed to Rate')</script>");
+            }
+            else
+            {
+                if (bal.UpdateNewRating(id, Convert.ToInt32(rate.Value)))
+                { Response.Write("<script>alert('Success to Rate')</script>"); }
+                else { Response.Write("<script>alert('Failed to Update Rating')</script>"); }
+            }
         }
     }
 }

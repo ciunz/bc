@@ -14,7 +14,7 @@ namespace DAL
             try
             { db.SubmitChanges(); return true; }
             catch
-            { return false; }
+            {  return false; }
         }
         public List<MsComment> GetCommentsByProduct(string idPro)
         {
@@ -35,6 +35,19 @@ namespace DAL
             { db.SubmitChanges(); return true; }
             catch
             { return false; }
+        }
+
+        public string GetNextId()
+        {
+            dbDataContext db = new dbDataContext();
+            var hasil = (from baris in db.MsComments
+                         orderby baris.idComment descending
+                         select baris).FirstOrDefault();
+
+            if (hasil == null)
+            { return "0000000001"; }
+            else
+            { return Convert.ToString(Convert.ToInt32(hasil.idComment) + 1); }
         }
     }
 }

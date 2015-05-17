@@ -56,5 +56,24 @@ namespace BAL
             return probal;
         }
 
+        public bool UpdateNewRating(string id, int InputRating)
+        {
+            double newRate = 0;
+            ProgramDAL dal = new ProgramDAL();
+            MsProgram probal = dal.GetProgramById(id);
+            if (!probal.rating.HasValue)
+            { newRate = InputRating; }
+            else 
+            {
+                newRate = (probal.rating.GetValueOrDefault() + Convert.ToDouble(InputRating)); 
+                newRate = newRate / 2;
+            }
+            string temp = newRate.ToString();
+            int l = temp.Length;
+            if (l >= 4)
+            { newRate = Convert.ToDouble(temp.Substring(0, 4)); }
+            probal.rating = newRate;
+            return dal.UpdateProgram(probal);            
+        }
     }
 }

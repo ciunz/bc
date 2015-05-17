@@ -32,5 +32,11 @@ namespace BAL
             CommentDAL dal = new CommentDAL();
             return dal.DeleteComment(idC);
         }
+        public string GetNextId()
+        { 
+            CommentDAL dal = new CommentDAL();
+            return dal.GetNextId();
+        }
+
     }
 }

@@ -16,7 +16,7 @@ namespace BAL
         { get; set; }
         public int size
         { get; set; }
-        public float rating
+        public double rating
         { get; set; }
         public string img
         { get; set; }
@@ -38,7 +38,7 @@ namespace BAL
                 title = pro.title,
                 descr = pro.descr,
                 size = pro.size,
-                //rating = float.Parse(pro.rating.ToString()),
+                rating = pro.rating.GetValueOrDefault(),
                 img = pro.img,
                 date = pro.date.ToString(),
                 os = pro.os,

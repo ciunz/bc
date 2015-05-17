@@ -33,12 +33,12 @@
                                 <h5 runat="server" id="ukuran">
                                     Empty <a href="#">Add to Cart</a></h5>
                                 <div class="available">
-                                    <form action="/home.aspx" method="post">
                                     <h4>
                                         Available Options :</h4>
                                     <ul>
                                         <li>Rating:
-                                            <select>
+                                            <select runat="server" id="rate">
+                                                <option value="0" selected="selected">-</option>
                                                 <option value="1">1</option>
                                                 <option value="2">2</option>
                                                 <option value="3">3</option>
@@ -47,44 +47,49 @@
                                             </select>
                                         </li>
                                     </ul>
-                                    <div class="btn_form">
-                                        <asp:Button ID="Button1" runat="server" Text="add to cart" CssClass="tombol" OnClick="Button1_Click" />
+                                    <div class="clear">
                                     </div>
-                                    </form>
-                                </div><div class="clear"></div>
-                                <div class="share-desc">
-                                <div class="share">
-                                    <h4>
-                                        Share Product :</h4>
-                                    <ul class="share_nav">
-                                        <li><a href="#">
-                                            <img src="/images/facebook.png" title="facebook" alt="" /></a></li>
-                                        <li><a href="#">
-                                            <img src="/images/twitter.png" title="Twiiter" alt="" /></a></li>
-                                        <li><a href="#">
-                                            <img src="/images/rss.png" title="Rss" alt="" /></a></li>
-                                        <li><a href="#">
-                                            <img src="/images/gpluse.png" title="Google+" alt="" /></a></li>
-                                    </ul>
+                                    <div class="btn_form">
+                                        <asp:Button BackColor="Gray" ID="Button3" runat="server" Text="Rate" CssClass="tombol" onclick="Button3_Click" />
+                                    </div>
+                                    &nbsp;&nbsp;
+                                    <div class="btn_form">
+                                        <asp:Button ID="Button1" runat="server" Text="Add to Cart" CssClass="tombol" OnClick="Button1_Click" />
+                                    </div>
                                 </div>
                                 <div class="clear">
                                 </div>
+                                <div class="share-desc">
+                                    <div class="share">
+                                        <h4>
+                                            Share Product :</h4>
+                                        <ul class="share_nav">
+                                            <li><a href="#">
+                                                <img src="/images/facebook.png" title="facebook" alt="" /></a></li>
+                                            <li><a href="#">
+                                                <img src="/images/twitter.png" title="Twiiter" alt="" /></a></li>
+                                            <li><a href="#">
+                                                <img src="/images/rss.png" title="Rss" alt="" /></a></li>
+                                            <li><a href="#">
+                                                <img src="/images/gpluse.png" title="Google+" alt="" /></a></li>
+                                        </ul>
+                                    </div>
+                                    <div class="clear">
+                                    </div>
+                                </div>
                             </div>
-                            </div>
-                            
-                            
                         </div>
                         <div class="clear">
                         </div>
                         <!-- start tabs -->
                         <section class="tabs">
-		            <input id="tab-1" type="radio" name="radio-set" class="tab-selector-1" checked="checked">
+		            <input id="tab-1" type="radio" name="radio-set" class="tab-selector-1" checked="checked" />
 			        <label for="tab-1" class="tab-label-1">Comments</label>
 			
-		            <input id="tab-2" type="radio" name="radio-set" class="tab-selector-2">
+		            <input id="tab-2" type="radio" name="radio-set" class="tab-selector-2" />
 			        <label for="tab-2" class="tab-label-2">Rating</label>
 
-                    <input id="tab-3" type="radio" name="radio-set" class="tab-selector-3">
+                    <input id="tab-3" type="radio" name="radio-set" class="tab-selector-3" />
 			        <label for="tab-2" class="tab-label-2">Description</label>
 			
 				    <div class="clear-shadow"></div>
@@ -106,9 +111,7 @@
 				        <div class="content-2">
 							<p class="para" runat="server" id="rating"><span>WELCOME </span></p>
                             <ul class="qua_nav">
-								<li>Multimedia Systems</li>
-								<li>Digital media adapters</li>
-								<li>Set top boxes for HDTV and IPTV Player applications on various Operating Systems and Hardware Platforms</li>
+								<li runat="server" id="ra"></li>
 							</ul>
                             <div class="clear"></div>
                       </div>
@@ -131,15 +134,13 @@
                             <h4>
                                 Comments</h4>
                             <div class="single-nav">
-                                <ul runat="server" id="komentar">
-                                    <li><a href="#">Always free from repetition</a></li>
-                                    <li><a href="#">Always free from repetition</a></li>
-                                    <li><a href="#">The standard chunk of Lorem Ipsum</a></li>
+                                <ul>
+                                    <span runat="server" id="komentar"></span>
                                     <li class="comm"><a href="#">Write a Comment</a>
-                                        <textarea class="ta"> </textarea>
+                                        <textarea rows="5" class="ta" runat="server" id="ta"></textarea>
                                     </li>
                                     <li class="comm2">
-                                        <input type="submit"/>
+                                        <asp:Button ID="Button2" runat="server" Text="Submit" OnClick="Button2_Click" />
                                     </li>
                                 </ul>
                             </div>
@@ -147,7 +148,7 @@
                                 <a href="#" class="main_link">
                                     <figure><img src="/images/delivery.png" alt=""/></figure>
                                     <h5>
-                                        <span>Free Shipping</span><br>
+                                        <span>Free Shipping</span><br />
                                         on orders over $99.</h5>
                                     <p>
                                         This offer is valid on all our store items.</p>

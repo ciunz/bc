@@ -12,9 +12,8 @@ namespace UI
             int qty = 10 - id.Length;
             string zero = "";
             for (int i = 1; i <= qty; i++)
-            {
-                zero += "0";
-            }
+            { zero += "0"; }
+            zero += id;
             return zero;
         }
     }

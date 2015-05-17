@@ -49,6 +49,24 @@ namespace UI {
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl ukuran;
         
         /// <summary>
+        /// rate control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlSelect rate;
+        
+        /// <summary>
+        /// Button3 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button Button3;
+        
+        /// <summary>
         /// Button1 control.
         /// </summary>
         /// <remarks>
@@ -76,6 +94,15 @@ namespace UI {
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl rating;
         
         /// <summary>
+        /// ra control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl ra;
+        
+        /// <summary>
         /// P1 control.
         /// </summary>
         /// <remarks>
@@ -93,6 +120,22 @@ namespace UI {
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl komentar;
         
-  
+        /// <summary>
+        /// ta control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlTextArea ta;
+        
+        /// <summary>
+        /// Button2 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button Button2;
     }
 }
