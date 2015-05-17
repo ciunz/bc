@@ -17,20 +17,29 @@
                         <div>
                             <span>
                                 <label>
-                                    New Password</label></span> <span>
-                                        <input name="Username" type="text" class="textbox" runat="server" id="newP" /></span>
+                                    New Password
+                            <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" 
+                                ControlToValidate="newP" Display="Dynamic" ErrorMessage="New Password Empty" 
+                                ForeColor="Red"></asp:RequiredFieldValidator>
+                            </label></span> &nbsp;<span><input name="Username" type="text" class="textbox" runat="server" id="newP" /></span>
                         </div>
                         <div>
                             <span>
                                 <label>
-                                    Re-Confirm Password</label></span> <span>
-                                        <input name="Password" type="text" class="textbox" runat="server" id="reP" /></span>
+                                    Re-Confirm Password
+                            <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" 
+                                ControlToValidate="reP" Display="Dynamic" 
+                                ErrorMessage="Re-enter Your New Password" ForeColor="Red"></asp:RequiredFieldValidator>
+                            </label></span> &nbsp;<span><input name="Password" type="text" class="textbox" runat="server" id="reP" /></span>
                         </div>
                         <div>
                             <span>
                                 <label>
-                                    Old Password</label></span> <span>
-                                        <input name="Password" type="text" class="textbox" runat="server" id="oldP" /></span>
+                                    Old Password&nbsp;
+                            <asp:RequiredFieldValidator ID="RequiredFieldValidator3" runat="server" 
+                                ControlToValidate="oldP" Display="Dynamic" ErrorMessage="Old Password Empty" 
+                                ForeColor="Red"></asp:RequiredFieldValidator>
+                            </label></span> &nbsp;<span><input name="Password" type="text" class="textbox" runat="server" id="oldP" /></span>
                         </div>
                         <div>
                             <span>

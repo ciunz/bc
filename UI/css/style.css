@@ -493,6 +493,17 @@ body {
 	-o-transition: all 0.3s ease-in-out;
 	transition: all 0.3s ease-in-out;
 }
+
+.grid1_of_3 .price h4
+{
+    margin: 4% 0 5%;
+    font-family: 'Source Sans Pro', sans-serif;
+  font-size: 1em;
+  color: #999999;
+  line-height: 1.2em;
+  text-transform: capitalize;    
+}
+
 .grid1_of_3:hover h3,.grid1_of_3:hover h4 span{
 	color: rgb(24, 141, 118);
 }
@@ -1400,6 +1411,9 @@ p.para{
 	}
 	.grid1_of_3 h3 {
 		font-size: 1.5em;
+	}
+    .grid1_of_3 h4 {
+		font-size: 1em;
 	}
 	.span1_of_1 {
 		width: 56.3333%;

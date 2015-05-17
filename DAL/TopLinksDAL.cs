@@ -14,10 +14,21 @@ namespace DAL
             //TopLink top = new TopLink();
 
             var hasil = from baris in db.TopLinks
-                        where baris.level <= level && baris.status != 0
+                        where baris.level <= level && baris.level>=1 && baris.status != 0
                         //where baris.status <= level
+                        select baris;          
+            return hasil.ToList();
+        }
+
+        public List<TopLink> GetLinkNoLogin()
+        {
+            dbDataContext db = new dbDataContext();
+
+            //TopLink top = new TopLink();
+
+            var hasil = from baris in db.TopLinks
+                        where baris.level >= 0 && baris.level<= 1 && baris.status != 0
                         select baris;
-            
             return hasil.ToList();
         }
 

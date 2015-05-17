@@ -57,7 +57,7 @@
     <Content Include="TopLink\AddTopLink.aspx" />
     <Content Include="Program\AllProgram.aspx" />
     <Content Include="User\AllUser.aspx" />
-    <Content Include="User\ChgPwd.aspx" />
+    <Content Include="ChgPwd.aspx" />
     <Content Include="css\owl.carousel.css" />
     <Content Include="css\productviewgallery.css" />
     <Content Include="css\slider.css" />
@@ -168,7 +168,6 @@
     <Content Include="js\responsive.menu.js" />
     <Content Include="Logout.aspx" />
     <Content Include="User\Register.aspx" />
-    <Content Include="User\SignUp.aspx" />
     <Content Include="TopLink\TopLinks.aspx" />
     <Content Include="User\User.aspx" />
     <Content Include="Web.config" />
@@ -230,11 +229,11 @@
     <Compile Include="User\AllUser.aspx.designer.cs">
       <DependentUpon>AllUser.aspx</DependentUpon>
     </Compile>
-    <Compile Include="User\ChgPwd.aspx.cs">
+    <Compile Include="ChgPwd.aspx.cs">
       <DependentUpon>ChgPwd.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="User\ChgPwd.aspx.designer.cs">
+    <Compile Include="ChgPwd.aspx.designer.cs">
       <DependentUpon>ChgPwd.aspx</DependentUpon>
     </Compile>
     <Compile Include="Program\details.aspx.cs">
@@ -286,13 +285,6 @@
     </Compile>
     <Compile Include="User\Register.aspx.designer.cs">
       <DependentUpon>Register.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="User\SignUp.aspx.cs">
-      <DependentUpon>SignUp.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="User\SignUp.aspx.designer.cs">
-      <DependentUpon>SignUp.aspx</DependentUpon>
     </Compile>
     <Compile Include="TopLink\TopLinks.aspx.cs">
       <DependentUpon>TopLinks.aspx</DependentUpon>

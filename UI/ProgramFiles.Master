@@ -103,15 +103,6 @@
 	<div class="header_sub">
 		<div class="h_menu">
 			<ul id="menuAtas" runat="server" style="text-align:center !important;">
-				<%--<li class="active"><a href="index.aspx">Home</a></li> |
-				<li><a href="sale.html">sale</a></li> |
-				<li><a href="wallets.html">History</a></li> |
-				<li><a href="sale.html">Change Password</a></li> |
-				<li><a href="index.html">Pesanan</a></li> |
-				<li><a href="shoes.html">Logout</a></li> |
-				<li><a href="sale.html">Login</a></li> |
-				<li><a href="service.html">Register</a></li> |
-				<li><a href="contact.html">About Us</a></li>--%>
 			</ul>
 		</div>
 		<div class="top-nav">

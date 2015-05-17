@@ -24,7 +24,7 @@ namespace UI
                 Label1.Text = "<h3>" + title + "</h3>";
                 keterangan.InnerText = b.descr;
                 ukuran.InnerText = b.size + " MB";
-                gambar.Src = "/"+b.img;
+                gambar.Src = "/images/"+b.img;
                 gambar.Alt = title;
                 descr.InnerHtml += b.descr;
                 rating.InnerHtml += b.rating;

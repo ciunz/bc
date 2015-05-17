@@ -62,6 +62,7 @@ namespace DAL
                 hasil.size = pro.size;
                 hasil.rating = pro.rating;
                 hasil.img = pro.img;
+                hasil.date = pro.date;
                 hasil.technology = pro.technology;
                 try
                 {

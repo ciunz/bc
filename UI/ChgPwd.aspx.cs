@@ -12,9 +12,9 @@ namespace UI
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            //validasi user
-            //ambil user
-            //ambil user pwd
+           if (Session["username"] == null || Session["lvl"] == null)
+            { Response.Redirect("/home.aspx"); }
+}
         }
 
         protected void Button1_Click(object sender, EventArgs e)
@@ -22,7 +22,7 @@ namespace UI
             string uid = Request.QueryString["uid"];
             string newPass = newP.Value;
             string rePass = reP.Value;
-            string oldPass = oldP.Value;
+            string oldPass = oldP.Value;        
             UserBAL bal = new UserBAL();
             MsUserBAL ubal = new MsUserBAL();
             ubal = bal.GetUserById(uid);

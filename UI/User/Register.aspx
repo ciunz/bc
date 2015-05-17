@@ -29,12 +29,13 @@
                 <div class="contact">
                     <div class="contact-form">
                         <h2>
-                            Sign Up</h2>
+                            Register</h2>
                         <div>
                             <asp:Image ID="Image1" runat="server" Visible="False" CssClass="imgUpload" /><br />
                             <asp:FileUpload ID="FileUploadControl" runat="server" />
                             <br />
-                            <asp:Button runat="server" ID="UploadButton" Text="Upload" OnClick="UploadButton_Click" />
+                            <asp:Button runat="server" ID="UploadButton" Text="Upload" 
+                                OnClick="UploadButton_Click" CausesValidation="False" />
                             <br />
                             <br />
                             <asp:Label runat="server" ID="StatusLabel" Text="Upload status: " Visible="False" />
@@ -44,20 +45,30 @@
                         <div>
                             <span>
                                 <label>
-                                    Nama</label></span> <span>
-                                        <asp:TextBox ID="Names" CssClass="textbox" runat="server"></asp:TextBox></span>
+                                    Name
+                                </label>
+                            </span><span>
+                                <asp:TextBox ID="Names" CssClass="textbox" runat="server"></asp:TextBox></span>
                         </div>
                         <div>
                             <span>
                                 <label>
-                                    User Name</label></span> <span>
-                                        <asp:TextBox ID="usrnm" CssClass="textbox" runat="server"></asp:TextBox></span>
+                                    Username
+                                    <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" Display="Dynamic"
+                                        ErrorMessage="Username Masih Kosong!" ControlToValidate="usrnm" ForeColor="Red">Username</asp:RequiredFieldValidator>
+                                </label>
+                            </span><span>
+                                <asp:TextBox ID="usrnm" CssClass="textbox" runat="server"></asp:TextBox></span>
                         </div>
                         <div>
                             <span>
                                 <label>
-                                    Email</label></span> <span>
-                                        <asp:TextBox ID="mail" CssClass="textbox" runat="server"></asp:TextBox></span>
+                                    Email
+                            <asp:RegularExpressionValidator ID="RegularExpressionValidator2" runat="server" 
+                                ControlToValidate="mail" Display="Dynamic" ErrorMessage="Format Email Salah" 
+                                ForeColor="Red" 
+                                ValidationExpression="\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*"></asp:RegularExpressionValidator>
+                            </label></span> &nbsp;<span><asp:TextBox ID="mail" CssClass="textbox" runat="server"></asp:TextBox></span>
                         </div>
                         <div>
                             <span>
@@ -68,7 +79,12 @@
                         <div>
                             <span>
                                 <label>
-                                    Alamat</label></span> <span>
+                                    Alamat 
+                            <asp:RequiredFieldValidator ID="RequiredFieldValidator3" runat="server" 
+                                ErrorMessage="Alamat Kosong" ControlToValidate="alamat" 
+                                Display="Dynamic" ForeColor="Red"></asp:RequiredFieldValidator>
+                                    </label>
+                                    </span> <span>
                                         <textarea name="Address" runat="server" id="alamat"> </textarea></span>
                         </div>
                         <div>
@@ -86,14 +102,27 @@
                         <div>
                             <span>
                                 <label>
-                                    Kode Pos</label></span> <span>
-                                        <asp:TextBox ID="kdpos" CssClass="textbox" runat="server"></asp:TextBox></span>
+                                    Kode Pos 
+                                    <asp:RequiredFieldValidator ID="RequiredFieldValidator4" runat="server" 
+                                ErrorMessage="Kode Pos Kosong" ControlToValidate="kdpos" Display="Dynamic" 
+                                ForeColor="Red"></asp:RequiredFieldValidator> &nbsp;
+                                    <asp:RegularExpressionValidator ID="RegularExpressionValidator1" 
+                                runat="server" Display="Dynamic" ErrorMessage="Kode Pos Harus Angka" 
+                                ForeColor="Red" ValidationExpression="\d{5}" ControlToValidate="kdpos"></asp:RegularExpressionValidator>
+                                    </label>
+                                        <asp:TextBox ID="kdpos" CssClass="textbox" runat="server"></asp:TextBox>
+                                    </span> 
                         </div>
                         <div>
                             <span>
                                 <label>
-                                    Password</label></span> <span>
-                                        <asp:TextBox ID="pwrd" runat="server" CssClass="pwds" TextMode="Password"></asp:TextBox></span>
+                                    Password 
+                            <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" 
+                                ErrorMessage="Password Kosong" ClientIDMode="Inherit" Display="Dynamic"
+                                ControlToValidate="pwrd" ForeColor="Red"></asp:RequiredFieldValidator>
+                                </label>
+                            </span><span>
+                                <asp:TextBox ID="pwrd" runat="server" CssClass="pwds" TextMode="Password"></asp:TextBox></span>
                         </div>
                         <div>
                             <span>

@@ -12,12 +12,6 @@ namespace UI
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            
-            shop.InnerHtml = Convert.ToString(Application["shopper"]);
-            if (Application["shopper"] == null)
-            { user.InnerText = "0"; shop.InnerHtml = "0"; }
-            else
-            { user.InnerText = Convert.ToString(Application["shopper"]); }
             if (Session["username"] != null && Session["lvl"] != null)
             {
                 Response.Redirect("/home.aspx");

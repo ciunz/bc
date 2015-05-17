@@ -30,21 +30,21 @@ namespace DAL
 		
     #region Extensibility Method Definitions
     partial void OnCreated();
-    partial void InsertMsCD(MsCD instance);
-    partial void UpdateMsCD(MsCD instance);
-    partial void DeleteMsCD(MsCD instance);
     partial void InsertTopLink(TopLink instance);
     partial void UpdateTopLink(TopLink instance);
     partial void DeleteTopLink(TopLink instance);
+    partial void InsertMsCD(MsCD instance);
+    partial void UpdateMsCD(MsCD instance);
+    partial void DeleteMsCD(MsCD instance);
     partial void InsertMsCustomer(MsCustomer instance);
     partial void UpdateMsCustomer(MsCustomer instance);
     partial void DeleteMsCustomer(MsCustomer instance);
-    partial void InsertMsProgram(MsProgram instance);
-    partial void UpdateMsProgram(MsProgram instance);
-    partial void DeleteMsProgram(MsProgram instance);
     partial void InsertMsPenjualan(MsPenjualan instance);
     partial void UpdateMsPenjualan(MsPenjualan instance);
     partial void DeleteMsPenjualan(MsPenjualan instance);
+    partial void InsertMsProgram(MsProgram instance);
+    partial void UpdateMsProgram(MsProgram instance);
+    partial void DeleteMsProgram(MsProgram instance);
     #endregion
 		
 		public dbDataContext() : 
@@ -77,19 +77,19 @@ namespace DAL
 			OnCreated();
 		}
 		
-		public System.Data.Linq.Table<MsCD> MsCDs
-		{
-			get
-			{
-				return this.GetTable<MsCD>();
-			}
-		}
-		
 		public System.Data.Linq.Table<TopLink> TopLinks
 		{
 			get
 			{
 				return this.GetTable<TopLink>();
+			}
+		}
+		
+		public System.Data.Linq.Table<MsCD> MsCDs
+		{
+			get
+			{
+				return this.GetTable<MsCD>();
 			}
 		}
 		
@@ -101,14 +101,6 @@ namespace DAL
 			}
 		}
 		
-		public System.Data.Linq.Table<MsProgram> MsPrograms
-		{
-			get
-			{
-				return this.GetTable<MsProgram>();
-			}
-		}
-		
 		public System.Data.Linq.Table<MsPenjualan> MsPenjualans
 		{
 			get
@@ -116,138 +108,12 @@ namespace DAL
 				return this.GetTable<MsPenjualan>();
 			}
 		}
-	}
-	
-	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.MsCD")]
-	public partial class MsCD : INotifyPropertyChanging, INotifyPropertyChanged
-	{
 		
-		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
-		
-		private string _idCD;
-		
-		private char _status;
-		
-		private int _ukuran;
-		
-		private int _biaya;
-		
-    #region Extensibility Method Definitions
-    partial void OnLoaded();
-    partial void OnValidate(System.Data.Linq.ChangeAction action);
-    partial void OnCreated();
-    partial void OnidCDChanging(string value);
-    partial void OnidCDChanged();
-    partial void OnstatusChanging(char value);
-    partial void OnstatusChanged();
-    partial void OnukuranChanging(int value);
-    partial void OnukuranChanged();
-    partial void OnbiayaChanging(int value);
-    partial void OnbiayaChanged();
-    #endregion
-		
-		public MsCD()
-		{
-			OnCreated();
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_idCD", DbType="Char(10) NOT NULL", CanBeNull=false, IsPrimaryKey=true)]
-		public string idCD
+		public System.Data.Linq.Table<MsProgram> MsPrograms
 		{
 			get
 			{
-				return this._idCD;
-			}
-			set
-			{
-				if ((this._idCD != value))
-				{
-					this.OnidCDChanging(value);
-					this.SendPropertyChanging();
-					this._idCD = value;
-					this.SendPropertyChanged("idCD");
-					this.OnidCDChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_status", DbType="Char(1) NOT NULL")]
-		public char status
-		{
-			get
-			{
-				return this._status;
-			}
-			set
-			{
-				if ((this._status != value))
-				{
-					this.OnstatusChanging(value);
-					this.SendPropertyChanging();
-					this._status = value;
-					this.SendPropertyChanged("status");
-					this.OnstatusChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ukuran", DbType="Int NOT NULL")]
-		public int ukuran
-		{
-			get
-			{
-				return this._ukuran;
-			}
-			set
-			{
-				if ((this._ukuran != value))
-				{
-					this.OnukuranChanging(value);
-					this.SendPropertyChanging();
-					this._ukuran = value;
-					this.SendPropertyChanged("ukuran");
-					this.OnukuranChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_biaya", DbType="Int NOT NULL")]
-		public int biaya
-		{
-			get
-			{
-				return this._biaya;
-			}
-			set
-			{
-				if ((this._biaya != value))
-				{
-					this.OnbiayaChanging(value);
-					this.SendPropertyChanging();
-					this._biaya = value;
-					this.SendPropertyChanged("biaya");
-					this.OnbiayaChanged();
-				}
-			}
-		}
-		
-		public event PropertyChangingEventHandler PropertyChanging;
-		
-		public event PropertyChangedEventHandler PropertyChanged;
-		
-		protected virtual void SendPropertyChanging()
-		{
-			if ((this.PropertyChanging != null))
-			{
-				this.PropertyChanging(this, emptyChangingEventArgs);
-			}
-		}
-		
-		protected virtual void SendPropertyChanged(String propertyName)
-		{
-			if ((this.PropertyChanged != null))
-			{
-				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+				return this.GetTable<MsProgram>();
 			}
 		}
 	}
@@ -385,6 +251,140 @@ namespace DAL
 					this._level = value;
 					this.SendPropertyChanged("level");
 					this.OnlevelChanged();
+				}
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.MsCD")]
+	public partial class MsCD : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private string _idCD;
+		
+		private char _status;
+		
+		private int _ukuran;
+		
+		private int _biaya;
+		
+    #region Extensibility Method Definitions
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnidCDChanging(string value);
+    partial void OnidCDChanged();
+    partial void OnstatusChanging(char value);
+    partial void OnstatusChanged();
+    partial void OnukuranChanging(int value);
+    partial void OnukuranChanged();
+    partial void OnbiayaChanging(int value);
+    partial void OnbiayaChanged();
+    #endregion
+		
+		public MsCD()
+		{
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_idCD", DbType="Char(10) NOT NULL", CanBeNull=false, IsPrimaryKey=true)]
+		public string idCD
+		{
+			get
+			{
+				return this._idCD;
+			}
+			set
+			{
+				if ((this._idCD != value))
+				{
+					this.OnidCDChanging(value);
+					this.SendPropertyChanging();
+					this._idCD = value;
+					this.SendPropertyChanged("idCD");
+					this.OnidCDChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_status", DbType="Char(1) NOT NULL")]
+		public char status
+		{
+			get
+			{
+				return this._status;
+			}
+			set
+			{
+				if ((this._status != value))
+				{
+					this.OnstatusChanging(value);
+					this.SendPropertyChanging();
+					this._status = value;
+					this.SendPropertyChanged("status");
+					this.OnstatusChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ukuran", DbType="Int NOT NULL")]
+		public int ukuran
+		{
+			get
+			{
+				return this._ukuran;
+			}
+			set
+			{
+				if ((this._ukuran != value))
+				{
+					this.OnukuranChanging(value);
+					this.SendPropertyChanging();
+					this._ukuran = value;
+					this.SendPropertyChanged("ukuran");
+					this.OnukuranChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_biaya", DbType="Int NOT NULL")]
+		public int biaya
+		{
+			get
+			{
+				return this._biaya;
+			}
+			set
+			{
+				if ((this._biaya != value))
+				{
+					this.OnbiayaChanging(value);
+					this.SendPropertyChanging();
+					this._biaya = value;
+					this.SendPropertyChanged("biaya");
+					this.OnbiayaChanged();
 				}
 			}
 		}
@@ -764,212 +764,6 @@ namespace DAL
 		}
 	}
 	
-	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.MsProgram")]
-	public partial class MsProgram : INotifyPropertyChanging, INotifyPropertyChanged
-	{
-		
-		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
-		
-		private string _idProgram;
-		
-		private string _title;
-		
-		private string _descr;
-		
-		private int _size;
-		
-		private System.Nullable<int> _rating;
-		
-		private string _img;
-		
-		private string _technology;
-		
-    #region Extensibility Method Definitions
-    partial void OnLoaded();
-    partial void OnValidate(System.Data.Linq.ChangeAction action);
-    partial void OnCreated();
-    partial void OnidProgramChanging(string value);
-    partial void OnidProgramChanged();
-    partial void OntitleChanging(string value);
-    partial void OntitleChanged();
-    partial void OndescrChanging(string value);
-    partial void OndescrChanged();
-    partial void OnsizeChanging(int value);
-    partial void OnsizeChanged();
-    partial void OnratingChanging(System.Nullable<int> value);
-    partial void OnratingChanged();
-    partial void OnimgChanging(string value);
-    partial void OnimgChanged();
-    partial void OntechnologyChanging(string value);
-    partial void OntechnologyChanged();
-    #endregion
-		
-		public MsProgram()
-		{
-			OnCreated();
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_idProgram", DbType="Char(10) NOT NULL", CanBeNull=false, IsPrimaryKey=true)]
-		public string idProgram
-		{
-			get
-			{
-				return this._idProgram;
-			}
-			set
-			{
-				if ((this._idProgram != value))
-				{
-					this.OnidProgramChanging(value);
-					this.SendPropertyChanging();
-					this._idProgram = value;
-					this.SendPropertyChanged("idProgram");
-					this.OnidProgramChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_title", DbType="VarChar(50) NOT NULL", CanBeNull=false)]
-		public string title
-		{
-			get
-			{
-				return this._title;
-			}
-			set
-			{
-				if ((this._title != value))
-				{
-					this.OntitleChanging(value);
-					this.SendPropertyChanging();
-					this._title = value;
-					this.SendPropertyChanged("title");
-					this.OntitleChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_descr", DbType="VarChar(MAX) NOT NULL", CanBeNull=false)]
-		public string descr
-		{
-			get
-			{
-				return this._descr;
-			}
-			set
-			{
-				if ((this._descr != value))
-				{
-					this.OndescrChanging(value);
-					this.SendPropertyChanging();
-					this._descr = value;
-					this.SendPropertyChanged("descr");
-					this.OndescrChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_size", DbType="Int NOT NULL")]
-		public int size
-		{
-			get
-			{
-				return this._size;
-			}
-			set
-			{
-				if ((this._size != value))
-				{
-					this.OnsizeChanging(value);
-					this.SendPropertyChanging();
-					this._size = value;
-					this.SendPropertyChanged("size");
-					this.OnsizeChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_rating", DbType="Int")]
-		public System.Nullable<int> rating
-		{
-			get
-			{
-				return this._rating;
-			}
-			set
-			{
-				if ((this._rating != value))
-				{
-					this.OnratingChanging(value);
-					this.SendPropertyChanging();
-					this._rating = value;
-					this.SendPropertyChanged("rating");
-					this.OnratingChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_img", DbType="VarChar(MAX)")]
-		public string img
-		{
-			get
-			{
-				return this._img;
-			}
-			set
-			{
-				if ((this._img != value))
-				{
-					this.OnimgChanging(value);
-					this.SendPropertyChanging();
-					this._img = value;
-					this.SendPropertyChanged("img");
-					this.OnimgChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_technology", DbType="VarChar(50) NOT NULL", CanBeNull=false)]
-		public string technology
-		{
-			get
-			{
-				return this._technology;
-			}
-			set
-			{
-				if ((this._technology != value))
-				{
-					this.OntechnologyChanging(value);
-					this.SendPropertyChanging();
-					this._technology = value;
-					this.SendPropertyChanged("technology");
-					this.OntechnologyChanged();
-				}
-			}
-		}
-		
-		public event PropertyChangingEventHandler PropertyChanging;
-		
-		public event PropertyChangedEventHandler PropertyChanged;
-		
-		protected virtual void SendPropertyChanging()
-		{
-			if ((this.PropertyChanging != null))
-			{
-				this.PropertyChanging(this, emptyChangingEventArgs);
-			}
-		}
-		
-		protected virtual void SendPropertyChanged(String propertyName)
-		{
-			if ((this.PropertyChanged != null))
-			{
-				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
-			}
-		}
-	}
-	
 	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.MsPenjualan")]
 	public partial class MsPenjualan : INotifyPropertyChanging, INotifyPropertyChanged
 	{
@@ -1120,6 +914,236 @@ namespace DAL
 						this._idCustomer = default(string);
 					}
 					this.SendPropertyChanged("MsCustomer");
+				}
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.MsProgram")]
+	public partial class MsProgram : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private string _idProgram;
+		
+		private string _title;
+		
+		private string _descr;
+		
+		private int _size;
+		
+		private System.Nullable<int> _rating;
+		
+		private string _img;
+		
+		private System.Nullable<System.DateTime> _date;
+		
+		private string _technology;
+		
+    #region Extensibility Method Definitions
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnidProgramChanging(string value);
+    partial void OnidProgramChanged();
+    partial void OntitleChanging(string value);
+    partial void OntitleChanged();
+    partial void OndescrChanging(string value);
+    partial void OndescrChanged();
+    partial void OnsizeChanging(int value);
+    partial void OnsizeChanged();
+    partial void OnratingChanging(System.Nullable<int> value);
+    partial void OnratingChanged();
+    partial void OnimgChanging(string value);
+    partial void OnimgChanged();
+    partial void OndateChanging(System.Nullable<System.DateTime> value);
+    partial void OndateChanged();
+    partial void OntechnologyChanging(string value);
+    partial void OntechnologyChanged();
+    #endregion
+		
+		public MsProgram()
+		{
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_idProgram", DbType="Char(10) NOT NULL", CanBeNull=false, IsPrimaryKey=true)]
+		public string idProgram
+		{
+			get
+			{
+				return this._idProgram;
+			}
+			set
+			{
+				if ((this._idProgram != value))
+				{
+					this.OnidProgramChanging(value);
+					this.SendPropertyChanging();
+					this._idProgram = value;
+					this.SendPropertyChanged("idProgram");
+					this.OnidProgramChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_title", DbType="VarChar(50) NOT NULL", CanBeNull=false)]
+		public string title
+		{
+			get
+			{
+				return this._title;
+			}
+			set
+			{
+				if ((this._title != value))
+				{
+					this.OntitleChanging(value);
+					this.SendPropertyChanging();
+					this._title = value;
+					this.SendPropertyChanged("title");
+					this.OntitleChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_descr", DbType="VarChar(MAX) NOT NULL", CanBeNull=false)]
+		public string descr
+		{
+			get
+			{
+				return this._descr;
+			}
+			set
+			{
+				if ((this._descr != value))
+				{
+					this.OndescrChanging(value);
+					this.SendPropertyChanging();
+					this._descr = value;
+					this.SendPropertyChanged("descr");
+					this.OndescrChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_size", DbType="Int NOT NULL")]
+		public int size
+		{
+			get
+			{
+				return this._size;
+			}
+			set
+			{
+				if ((this._size != value))
+				{
+					this.OnsizeChanging(value);
+					this.SendPropertyChanging();
+					this._size = value;
+					this.SendPropertyChanged("size");
+					this.OnsizeChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_rating", DbType="Int")]
+		public System.Nullable<int> rating
+		{
+			get
+			{
+				return this._rating;
+			}
+			set
+			{
+				if ((this._rating != value))
+				{
+					this.OnratingChanging(value);
+					this.SendPropertyChanging();
+					this._rating = value;
+					this.SendPropertyChanged("rating");
+					this.OnratingChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_img", DbType="VarChar(MAX)")]
+		public string img
+		{
+			get
+			{
+				return this._img;
+			}
+			set
+			{
+				if ((this._img != value))
+				{
+					this.OnimgChanging(value);
+					this.SendPropertyChanging();
+					this._img = value;
+					this.SendPropertyChanged("img");
+					this.OnimgChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_date", DbType="DateTime")]
+		public System.Nullable<System.DateTime> date
+		{
+			get
+			{
+				return this._date;
+			}
+			set
+			{
+				if ((this._date != value))
+				{
+					this.OndateChanging(value);
+					this.SendPropertyChanging();
+					this._date = value;
+					this.SendPropertyChanged("date");
+					this.OndateChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_technology", DbType="VarChar(50) NOT NULL", CanBeNull=false)]
+		public string technology
+		{
+			get
+			{
+				return this._technology;
+			}
+			set
+			{
+				if ((this._technology != value))
+				{
+					this.OntechnologyChanging(value);
+					this.SendPropertyChanging();
+					this._technology = value;
+					this.SendPropertyChanged("technology");
+					this.OntechnologyChanged();
 				}
 			}
 		}

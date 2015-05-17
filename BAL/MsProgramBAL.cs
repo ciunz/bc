@@ -20,6 +20,8 @@ namespace BAL
         { get; set; }
         public string img
         { get; set; }
+        public string date
+        { get; set; }
         public string technology
         { get; set; }
 
@@ -34,6 +36,7 @@ namespace BAL
                 size = pro.size,
                 rating = Convert.ToInt32(pro.rating),
                 img = pro.img,
+                date = pro.date.ToString(),
                 technology = pro.technology
             };
             return baru;
@@ -49,6 +52,7 @@ namespace BAL
                 size = pro.size,
                 rating = Convert.ToInt32(pro.rating),
                 img = pro.img,
+                date = Convert.ToDateTime(pro.date),
                 technology = pro.technology
             };
             return baru;
