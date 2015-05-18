@@ -53,6 +53,7 @@
   <ItemGroup>
     <Content Include="AboutUs.aspx" />
     <Content Include="CekOut.aspx" />
+    <Content Include="History.aspx" />
     <Content Include="Login.aspx" />
     <Content Include="TopLink\AddTopLink.aspx" />
     <Content Include="Program\AllProgram.aspx" />
@@ -199,6 +200,13 @@
     </Compile>
     <Compile Include="FreePage.Master.designer.cs">
       <DependentUpon>FreePage.Master</DependentUpon>
+    </Compile>
+    <Compile Include="History.aspx.cs">
+      <DependentUpon>History.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="History.aspx.designer.cs">
+      <DependentUpon>History.aspx</DependentUpon>
     </Compile>
     <Compile Include="Login.aspx.cs">
       <DependentUpon>Login.aspx</DependentUpon>
