@@ -46,7 +46,7 @@ namespace UI {
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputText newP;
+        protected global::System.Web.UI.HtmlControls.HtmlInputPassword newP;
         
         /// <summary>
         /// RequiredFieldValidator2 control.
@@ -64,7 +64,7 @@ namespace UI {
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputText reP;
+        protected global::System.Web.UI.HtmlControls.HtmlInputPassword reP;
         
         /// <summary>
         /// RequiredFieldValidator3 control.
@@ -82,7 +82,7 @@ namespace UI {
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputText oldP;
+        protected global::System.Web.UI.HtmlControls.HtmlInputPassword oldP;
         
         /// <summary>
         /// Button1 control.

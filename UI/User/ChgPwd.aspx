@@ -21,7 +21,7 @@
                             <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" 
                                 ControlToValidate="newP" Display="Dynamic" ErrorMessage="New Password Empty" 
                                 ForeColor="Red"></asp:RequiredFieldValidator>
-                            </label></span> &nbsp;<span><input name="Username" type="text" class="textbox" runat="server" id="newP" /></span>
+                            </label></span> &nbsp;<span><input name="Username" type="password" class="pwds" runat="server" id="newP" /></span>
                         </div>
                         <div>
                             <span>
@@ -30,7 +30,7 @@
                             <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" 
                                 ControlToValidate="reP" Display="Dynamic" 
                                 ErrorMessage="Re-enter Your New Password" ForeColor="Red"></asp:RequiredFieldValidator>
-                            </label></span> &nbsp;<span><input name="Password" type="text" class="textbox" runat="server" id="reP" /></span>
+                            </label></span> &nbsp;<span><input name="Password" type="password" class="pwds" runat="server" id="reP" /></span>
                         </div>
                         <div>
                             <span>
@@ -39,7 +39,7 @@
                             <asp:RequiredFieldValidator ID="RequiredFieldValidator3" runat="server" 
                                 ControlToValidate="oldP" Display="Dynamic" ErrorMessage="Old Password Empty" 
                                 ForeColor="Red"></asp:RequiredFieldValidator>
-                            </label></span> &nbsp;<span><input name="Password" type="text" class="textbox" runat="server" id="oldP" /></span>
+                            </label></span> &nbsp;<span><input name="Password" type="password" class="pwds" runat="server" id="oldP" /></span>
                         </div>
                         <div>
                             <span>

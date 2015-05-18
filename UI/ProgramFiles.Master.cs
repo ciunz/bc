@@ -59,7 +59,7 @@ namespace UI
             {
                 menuAtas.InnerHtml += "<li><a href='" + a.links + "'>" + a.name + "</a></li>";
                 if (count != panjang) { menuAtas.InnerHtml += "|"; }
-                menuMobile.InnerHtml += "<li class='nav-item'><a href='/" + a.links + "'>" + a.name + "</a></li>";
+                menuMobile.InnerHtml += "<li class='nav-item'><a href='" + a.links + "'>" + a.name + "</a></li>";
                 count++;
             } //ambil top link end               
         }

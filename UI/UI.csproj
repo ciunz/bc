@@ -53,6 +53,7 @@
   <ItemGroup>
     <Content Include="AboutUs.aspx" />
     <Content Include="CekOut.aspx" />
+    <Content Include="DeleteOrder.aspx" />
     <Content Include="History.aspx" />
     <Content Include="Login.aspx" />
     <Content Include="TopLink\AddTopLink.aspx" />
@@ -193,6 +194,13 @@
     </Compile>
     <Compile Include="CekOut.aspx.designer.cs">
       <DependentUpon>CekOut.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="DeleteOrder.aspx.cs">
+      <DependentUpon>DeleteOrder.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="DeleteOrder.aspx.designer.cs">
+      <DependentUpon>DeleteOrder.aspx</DependentUpon>
     </Compile>
     <Compile Include="FreePage.Master.cs">
       <DependentUpon>FreePage.Master</DependentUpon>

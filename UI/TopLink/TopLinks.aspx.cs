@@ -12,6 +12,12 @@ namespace UI
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            //pagar khusus admin dan login
+            if (Session["lvl"] == null)
+            { Session["msg"] = "Hacking Attempt!"; Response.Redirect("/home.aspx"); }
+            else if (Convert.ToInt32(Session["lvl"]) != 3)
+            { Session["msg"] = "No Access!"; Response.Redirect("/home.aspx"); }
+
             TopLinksDAL top = new TopLinksDAL();
             List<TopLink> tl = new List<TopLink>();
             tl = top.GetLinkList();

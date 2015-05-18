@@ -63,9 +63,9 @@ namespace BAL
             MsProgram probal = dal.GetProgramById(id);
             if (!probal.rating.HasValue)
             { newRate = InputRating; }
-            else 
+            else
             {
-                newRate = (probal.rating.GetValueOrDefault() + Convert.ToDouble(InputRating)); 
+                newRate = (probal.rating.GetValueOrDefault() + Convert.ToDouble(InputRating));
                 newRate = newRate / 2;
             }
             string temp = newRate.ToString();
@@ -73,7 +73,24 @@ namespace BAL
             if (l >= 4)
             { newRate = Convert.ToDouble(temp.Substring(0, 4)); }
             probal.rating = newRate;
-            return dal.UpdateProgram(probal);            
+            return dal.UpdateProgram(probal);
+        }
+
+        public List<string> GetTechList()
+        {
+            ProgramDAL dal = new ProgramDAL();
+            return dal.GetTechList();
+        }
+        public List<MsProgramBAL> GetProgramListByTech(string tech)
+        {
+            ProgramDAL dal = new ProgramDAL();
+            List<MsProgramBAL> lp = new List<MsProgramBAL>();
+            foreach(MsProgram probal in dal.GetProgramListByTech(tech))
+            {
+                MsProgramBAL mp = new MsProgramBAL();
+                lp.Add(mp.ConvertToMsProgramBAL(probal));
+            }
+            return lp;
         }
     }
 }

@@ -12,17 +12,22 @@ namespace UI
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            int perPage = 10;
-            int pa = 0;
-            if (Request.QueryString["page"] != null || Request.QueryString["page"] != "")
-            { pa = perPage * Convert.ToInt32(Request.QueryString["page"]); }
+            //pagar khusus admin dan login
+            if (Session["lvl"] == null)
+            { Session["msg"] = "Hacking Attempt!"; Response.Redirect("/home.aspx"); }
+            else if (Convert.ToInt32(Session["lvl"]) != 3)
+            { Session["msg"] = "No Access!"; Response.Redirect("/home.aspx"); }
+            //pagination inisiasi
+            int perPage = 9;
+            int page = Convert.ToInt32(Request.QueryString["page"]);
+            page = (Request.QueryString["page"] == null || Request.QueryString["page"] == "1") ? 0 : page * perPage;
                                
             PenjualanBAL pbal = new PenjualanBAL();
             List<MsPenjualanBAL> lb = new List<MsPenjualanBAL>();
             lb = pbal.GetPenjualanList();
-            tbJual.InnerHtml += "<table border='1' style='width:100%; font-family:Source Sans Pro, sans-serif;'>";
-            tbJual.InnerHtml += "<tr><td>Tanggal</td><td>Nama</td><td>Judul</td><td>Size</td></tr>";
-            foreach (MsPenjualanBAL mp in lb.Skip(pa).Take(perPage))
+            tbJual.InnerHtml += "<table border='1' style=''>";
+            tbJual.InnerHtml += "<tr class='judul'><td>Tanggal</td><td>Nama</td><td>Judul</td><td>Size</td></tr>";
+            foreach (MsPenjualanBAL mp in lb.Skip(page).Take(perPage))
             {
                 string[] result = mp.detail.Split(new char[] { ';' });
                 UserBAL ub = new UserBAL();
@@ -43,6 +48,16 @@ namespace UI
                 }
             }
             tbJual.InnerHtml += "</table>";
+
+            //pagination
+            int i = 1;
+            int k = (pbal.GetPenjualanList().Count % perPage) != 0 ? 0 : 1;
+            int j = (pbal.GetPenjualanList().Count / perPage) + k;
+            do
+            {
+                pagination.InnerHtml += " &nbsp; <a href='/History.aspx?page=" + i + "'>" + i + "</a> &nbsp; ";
+                i++;
+            } while (i <= j);
         }
     }
 }

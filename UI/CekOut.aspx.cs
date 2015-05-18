@@ -12,22 +12,31 @@ namespace UI
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            //ambil message, tampilkan
+            if (Session["msg"] != null)
+            { Response.Write("<script>alert('" + Session["msg"] + "')</script>"); Session["msg"] = null; }
+            
+            if (Session["username"] == null || Session["lvl"] == null)
+            { Session["msg"] = "No Access, Please Login!"; Response.Redirect("/home.aspx"); }
+            
             if (Session["order"] != null)
             {
                 List<string> order = new List<string>();
                 order = (List<string>)Session["order"];
-                int totalSize = 0;
-                cekout.InnerHtml += "<table>";
+                int totalSize = 0; int counter = 1;
+                cekout.InnerHtml += "<table><tr class='judul'><td>No.</td><td>Judul</td><td>Size</td><td>Delete</td></tr>";
                 foreach (string o in order)
                 {
                     ProgramBAL bal = new ProgramBAL();
                     MsProgramBAL probal = new MsProgramBAL();
                     probal = bal.getProgramById(o);
                     cekout.InnerHtml += "<tr>";
+                    cekout.InnerHtml += "<td>" + counter + "</td>";
                     cekout.InnerHtml += "<td>" + probal.title + "</td>";
                     cekout.InnerHtml += "<td>" + probal.size + "</td>";
+                    cekout.InnerHtml += "<td><a href='DeleteOrder.aspx?id=" + o + "'><img width='20px' height='20px' src='/images/file_delete.png' alt='Delete' /></a></td>";
                     cekout.InnerHtml += "</tr>";
-                    totalSize += probal.size;
+                    totalSize += probal.size; counter++;
                 }
                 cekout.InnerHtml += "</table>";
                 cekout.InnerHtml += "<h1> Total : " + totalSize + "</h1>";
@@ -35,7 +44,7 @@ namespace UI
             }
             else
             {
-                Response.Redirect("/home.aspx");
+                Session["msg"] = "Order Empty!"; Response.Redirect("/home.aspx");
             }
         }
 
@@ -57,14 +66,13 @@ namespace UI
             try
             {
                 pbal.AddPenjualan(jual);
-                Response.Write("<script>alert('berhasil')</script>");
-                Session["order"] = null;
+                Session["msg"] = "Cek Out Berhasil!"; Session["order"] = null;
                 cekout.InnerHtml = "";
                 Response.Redirect("/home.aspx");
             }
             catch
             {
-                Response.Write("<script>alert('gagal')</script>");
+                Session["msg"] = "Cek Out Gagal!";
             }
         }
     }

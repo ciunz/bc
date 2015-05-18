@@ -17,7 +17,7 @@ namespace UI
             if (id == null)
             { Response.Redirect("/Program/AllProgram.aspx"); }
             if (Session["username"] == null || Session["lvl"] == null)
-            { Response.Redirect("/home.aspx"); }
+            { Session["msg"] = "No Access, Please Login!"; Response.Redirect("/home.aspx"); }
 
             //ambil keterangan program
             ProgramBAL probal = new ProgramBAL();
@@ -32,7 +32,7 @@ namespace UI
             gambar.Alt = title;
             descr.InnerHtml += b.descr;
             rating.InnerHtml += b.rating;
-            ra.InnerHtml = b.rating.ToString().Substring(0,4);
+            ra.InnerHtml = (b.rating.ToString().Length >= 4) ? b.rating.ToString().Substring(0, 4) : b.rating.ToString();
             
             //ambil comment
 

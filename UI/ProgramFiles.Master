@@ -55,20 +55,15 @@
 		       });
 			</script>
 
-
-
     <asp:ContentPlaceHolder ID="head" runat="server">
     </asp:ContentPlaceHolder>
 </head>
 <body>
-
-
-
 <div class="header_bg">
 <div class="wrap">
 	<div class="header">
 		<div class="logo">
-			<a href="index.html"><img src="/images/logo.png" /></a>
+			<a href="/home.aspx"><img src="/images/logo3.png" alt="logo" /></a>
 		</div>
 		<div class="h_icon">
 		<ul class="icon1 sub-icon1">
@@ -90,8 +85,8 @@
 		</div>
 		<div class="h_search">
     		<form>
-    			<input type="text" value="">
-    			<input type="submit" value="">
+    			<input type="text" value="" />
+    			<input type="submit" value="" />
     		</form>
 		</div>
 		<div class="clear"></div>
@@ -143,55 +138,27 @@
 		<!-- start grids_of_4 -->	
 		<div class="grids_of_4">
 			<div class="grid1_of_4">
-				<h4>featured sale</h4>
+				<h4></h4>
 				<ul class="f_nav">
-					<li><a href="">alexis Hudson</a></li>
-					<li><a href="">american apparel</a></li>
-					<li><a href="">ben sherman</a></li>
-					<li><a href="">big buddha</a></li>
-					<li><a href="">channel</a></li>
-					<li><a href="">christian audigier</a></li>
-					<li><a href="">coach</a></li>
-					<li><a href="">cole haan</a></li>
 				</ul>
 			</div>
 			<div class="grid1_of_4">
-				<h4>mens store</h4>
+				<h4></h4>
 				<ul class="f_nav">
-					<li><a href="">alexis Hudson</a></li>
-					<li><a href="">american apparel</a></li>
-					<li><a href="">ben sherman</a></li>
-					<li><a href="">big buddha</a></li>
-					<li><a href="">channel</a></li>
-					<li><a href="">christian audigier</a></li>
-					<li><a href="">coach</a></li>
-					<li><a href="">cole haan</a></li>
 				</ul>
 			</div>
 			<div class="grid1_of_4">
-				<h4>women store</h4>
+				<h4></h4>
 				<ul class="f_nav">
-					<li><a href="">alexis Hudson</a></li>
-					<li><a href="">american apparel</a></li>
-					<li><a href="">ben sherman</a></li>
-					<li><a href="">big buddha</a></li>
-					<li><a href="">channel</a></li>
-					<li><a href="">christian audigier</a></li>
-					<li><a href="">coach</a></li>
-					<li><a href="">cole haan</a></li>
 				</ul>
 			</div>
 			<div class="grid1_of_4">
-				<h4>quick links</h4>
+				<h4>Kornelius Sendy</h4>
 				<ul class="f_nav">
-					<li><a href="">alexis Hudson</a></li>
-					<li><a href="">american apparel</a></li>
-					<li><a href="">ben sherman</a></li>
-					<li><a href="">big buddha</a></li>
-					<li><a href="">channel</a></li>
-					<li><a href="">christian audigier</a></li>
-					<li><a href="">coach</a></li>
-					<li><a href="">cole haan</a></li>
+					<li><a href="">Cengkareng Indah HD no 9</a></li>
+                    <li><a href="">Cengkareng, Jakarta Barat 11720</a></li>
+					<li><a href="">WA : 087888905650</a></li>
+					<li><a href="">BBM : 550483E6</a></li>
 				</ul>
 			</div>
 			<div class="clear"></div>
@@ -222,7 +189,7 @@
 		 <a href="#" id="toTop" style="display: block;"><span id="toTopHover" style="opacity: 1;"></span></a>
 		<!--end scroll_top_btn -->
 		<div class="copy">
-			<p class="link">&copy;  All rights reserved | Template by&nbsp;&nbsp;<a href="http://w3layouts.com/"> W3Layouts</a></p>
+			<p class="link">&copy;  All rights reserved | Kornelius Sendy</a></p>
 		</div>
 		<div class="clear"></div>
 	</div>

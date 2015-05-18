@@ -14,14 +14,9 @@ namespace DAL
             db.MsPrograms.InsertOnSubmit(baru);
 
             try
-            {
-                db.SubmitChanges();
-                return true;
-            }
+            { db.SubmitChanges(); return true; }
             catch
-            {
-                return false;
-            }
+            { return false; }
         }
 
         public List<MsProgram> GetProgramList()
@@ -67,20 +62,13 @@ namespace DAL
                 hasil.license = pro.license;
                 hasil.technology = pro.technology;
                 try
-                {
-                    db.SubmitChanges();
-                    return true;
-                }
+                { db.SubmitChanges(); return true; }
                 catch
-                {
-                    return false;
-                }
+                { return false; }
 
             }
             else
-            {
-                return false;
-            }                    
+            { return false; }
         }
 
 
@@ -95,19 +83,12 @@ namespace DAL
             {
                 db.MsPrograms.DeleteOnSubmit(hapus);
                 try
-                {
-                    db.SubmitChanges();
-                    return true;
-                }
+                { db.SubmitChanges(); return true; }
                 catch
-                {
-                    return false;
-                }
+                { return false; }
             }
-            else 
-            {
-                return false;
-            }
+            else
+            { return false; }
         }
 
         public string getLastID()
@@ -117,6 +98,23 @@ namespace DAL
                         orderby baris.idProgram descending
                         select baris).FirstOrDefault();
             return cari.idProgram;
+        }
+
+        public List<string> GetTechList()
+        {
+            dbDataContext db = new dbDataContext();
+            var cari = (from baris in db.MsPrograms
+                        orderby baris.technology
+                        select baris.technology).Distinct();
+            return cari.ToList();
+        }
+        public List<MsProgram> GetProgramListByTech(string tech)
+        {
+            dbDataContext db = new dbDataContext();
+            var cari = from baris in db.MsPrograms
+                       where baris.technology == tech
+                       select baris;
+            return cari.ToList();
         }
 
     }
