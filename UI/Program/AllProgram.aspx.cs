@@ -14,7 +14,11 @@ namespace UI
         {
             if (Session["username"] == null || Session["lvl"] == null)
             { Session["msg"] = "No Access, Please Login!"; Response.Redirect("/home.aspx"); }
-
+            if (Session["msg"] != null)
+            { Response.Write("<script>alert('" + Session["msg"] + "')</script>"); Session["msg"] = null; }
+            if (Convert.ToInt32(Session["lvl"]) == 3)
+            { tec.InnerHtml += "<a href='/Program/AddProgram.aspx'><div class='tech'>ADD PROGRAM</div></a>"; }
+            
             //inisiasi pagination
             int perPage = 9;
             int page = Convert.ToInt32(Request.QueryString["page"]);
@@ -39,7 +43,7 @@ namespace UI
                     //cetak
                     isi += "<div class='grid1_of_3'>";
                     isi += "<a href='details.aspx?id=" + probal.idProgram + "'>";
-                    isi += "<div class='gambar'><img src='/images/" + probal.img + "' alt=''/></div>";
+                    isi += "<div class='gambar'><img src='/images/ProgramImg/" + probal.img + "' alt=''/></div>";
                     isi += "<h3>" + probal.title + "</h3>";
                     isi += "<div class='price'>";
                     isi += "<h4>" + probal.size + "MB <span>Buy</span></h4>";
@@ -62,6 +66,7 @@ namespace UI
             { pro.InnerHtml = "<h2>Data Not Found</h2>"; }
             int i = 1;
             int k = (lb.Count % perPage) != 0 ? 0 : 1;
+            k = lb.Count == perPage ? 0 : 1;
             int j = (lb.Count / perPage) + k;
             string path = (Request.QueryString["t"] == null) ? "/Program/Allprogram.aspx?" : "/Program/Allprogram.aspx?t="+tt+"&";
             do

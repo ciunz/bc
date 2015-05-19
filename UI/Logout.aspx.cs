@@ -13,7 +13,7 @@ namespace UI
         {
             if (Session["username"] != null && Session["lvl"] != null)
             {
-                Application.Lock();
+                Application.Lock();              
                 int shopper = Convert.ToInt32(Application["shopper"]) - 1;
                 Application["shopper"] = shopper.ToString();
                 Application.UnLock();

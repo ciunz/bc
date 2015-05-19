@@ -63,17 +63,15 @@ namespace UI
             }
             jual.idPenjualan = pbal.GetNextId().ToString();
             jual.tglTrans = DateTime.Now.ToString("yyyy-MM-dd");
-            try
+            if( pbal.AddPenjualan(jual))
             {
-                pbal.AddPenjualan(jual);
                 Session["msg"] = "Cek Out Berhasil!"; Session["order"] = null;
                 cekout.InnerHtml = "";
                 Response.Redirect("/home.aspx");
             }
-            catch
-            {
-                Session["msg"] = "Cek Out Gagal!";
-            }
+            else
+            {Session["msg"] = "Cek Out Gagal!";}
+
         }
     }
 }

@@ -92,5 +92,11 @@ namespace BAL
             }
             return lp;
         }
+
+        public bool CekProgram(string id)
+        {
+            ProgramDAL dal = new ProgramDAL();
+            return dal.CekProgram(id);
+        }
     }
 }

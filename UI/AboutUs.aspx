@@ -7,46 +7,81 @@
     <div class="main_bg">
         <div class="wrap">
             <div class="main">
-                <div class="contact">
-                    <div class="contact-form">
-                        <h2>
-                            About Us</h2>
-                        <div>
-                            <span>
-                                <label>
-                                    <strong>Lorem Ipsum</strong>
-                                </label>
-                                <label style="text-align:justify;">
-                                    Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem
-                                    Ipsum has been the industry's standard dummy text ever since the 1500s, when an
-                                    unknown printer took a galley of type and scrambled it to make a type specimen book.
-                                    It has survived not only five centuries, but also the leap into electronic typesetting,
-                                    remaining essentially unchanged. It was popularised in the 1960s with the release
-                                    of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop
-                                    publishing software like Aldus PageMaker including versions of Lorem Ipsum.</label>
-                            </span>
+                <div class="service">
+                    <div class="ser-main">
+                        <h4>
+                            Our Services</h4>
+                        <p class="para">
+                            Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem
+                            Ipsum has been the industry's standard dummy text ever since the 1500s, when an
+                            unknown printer took a galley of type and scrambled it to make a type specimen book.
+                            It has survived not only five centuries, but also the leap into electronic typesetting.</p>
+                        <div class="ser-grid">
+                            <div class="ser-grid-list">
+                                <a href="details.html">
+                                    <img src="images/icon1.png" alt=""></a>
+                                <h5>
+                                    <a href="details.html">24/7 customer support</a></h5>
+                                <p class="para">
+                                    It is a long established fact that a reader will be distracted by the page when
+                                    looking at its layout.</p>
+                            </div>
+                            <div class="ser-grid-list">
+                                <a href="details.html">
+                                    <img src="images/icon2.png" alt=""></a>
+                                <h5>
+                                    <a href="details.html">hygienic branded</a></h5>
+                                <p class="para">
+                                    The point of using Lorem Ipsum is that it has a more-or-less normal distribution
+                                    of letters.</p>
+                            </div>
+                            <div class="ser-grid-list">
+                                <a href="details.html">
+                                    <img src="images/icon3.png" alt=""></a>
+                                <h5>
+                                    <a href="details.html">safely dispatch</a></h5>
+                                <p class="para">
+                                    It is a long established fact that a reader will be distracted by the page when
+                                    looking at its layout.</p>
+                            </div>
+                            <div class="clear">
+                            </div>
                         </div>
-                        <div>
-                            <span>
-                                <label style="text-align:justify;">
-                                    Lorem Ipsum
-                                </label>
-                                <label>
-                                    It is a long established fact that a reader will be distracted by the readable content
-                                    of a page when looking at its layout. The point of using Lorem Ipsum is that it
-                                    has a more-or-less normal distribution of letters, as opposed to using 'Content
-                                    here, content here', making it look like readable English. Many desktop publishing
-                                    packages and web page editors now use Lorem Ipsum as their default model text, and
-                                    a search for 'lorem ipsum' will uncover many web sites still in their infancy. Various
-                                    versions have evolved over the years, sometimes by accident, sometimes on purpose
-                                    (injected humour and the like).
-                                </label>
-                            </span>
-                        </div>                     
-                    </div>
-                    <div class="clear">
+                        <div class="ser-grid">
+                            <div class="ser-grid-list">
+                                <a href="details.html">
+                                    <img src="images/icon4.png" alt=""></a>
+                                <h5>
+                                    <a href="details.html">100% look book</a></h5>
+                                <p class="para">
+                                    It is a long established fact that a reader will be distracted by the page when
+                                    looking at its layout.</p>
+                            </div>
+                            <div class="ser-grid-list">
+                                <a href="details.html">
+                                    <img src="images/icon5.png" alt=""></a>
+                                <h5>
+                                    <a href="details.html">authentic products</a></h5>
+                                <p class="para">
+                                    The point of using Lorem Ipsum is that it has a more-or-less normal distribution
+                                    of letters.</p>
+                            </div>
+                            <div class="ser-grid-list">
+                                <a href="details.html">
+                                    <img src="images/icon6.png" alt=""></a>
+                                <h5>
+                                    <a href="details.html">100% guarantee</a></h5>
+                                <p class="para">
+                                    It is a long established fact that a reader will be distracted by the page when
+                                    looking at its layout.</p>
+                            </div>
+                            <div class="clear">
+                            </div>
+                        </div>
                     </div>
                 </div>
+            </div>
+            <div class="clear">
             </div>
         </div>
     </div>

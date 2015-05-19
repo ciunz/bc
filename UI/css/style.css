@@ -51,6 +51,23 @@ body {
 .logo{
 	float:left;
 }
+.tech
+{
+    display: inline-block;
+    font-size: 1.1em;
+    background: #3CC395;
+    color: #ffffff;
+    padding: 8px 20px;
+    margin-left: 30px;
+    -webkit-transition: all 0.3s ease-in-out;
+    -moz-transition: all 0.3s ease-in-out;
+    -o-transition: all 0.3s ease-in-out;
+    transition: all 0.3s ease-in-out;
+}
+.tech:hover
+{
+    color:#f0f0f0;
+}
 /*search*/
 .h_search{
 	float: right;
@@ -823,7 +840,7 @@ h2.top{
 }
 .ser-main{
 	float: left;
-	width: 68.33333%;
+	width: 100%;
 	margin-right: 2.3333%;
 	font-family: 'Source Sans Pro', sans-serif;
 }
@@ -1644,6 +1661,11 @@ p.para{
 	.product-essential {
 		padding: 5px;
 	}
+	.tech
+	{
+	    width : 50%;
+	    margin-left : 0px !important;
+	}
 }
 @media only screen and (max-width: 320px) {
 	.wrap{
@@ -1660,5 +1682,10 @@ p.para{
 	}
 	.tabs {
 		margin: 10px auto;
+	}
+	.tech
+	{
+	    width : 100%;
+	    margin-left : 0px !important;
 	}
 }

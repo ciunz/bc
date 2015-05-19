@@ -52,6 +52,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="AboutUs.aspx" />
+    <Content Include="Program\AddProgram.aspx" />
     <Content Include="CekOut.aspx" />
     <Content Include="DeleteOrder.aspx" />
     <Content Include="History.aspx" />
@@ -187,6 +188,13 @@
     </Compile>
     <Compile Include="AboutUs.aspx.designer.cs">
       <DependentUpon>AboutUs.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Program\AddProgram.aspx.cs">
+      <DependentUpon>AddProgram.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Program\AddProgram.aspx.designer.cs">
+      <DependentUpon>AddProgram.aspx</DependentUpon>
     </Compile>
     <Compile Include="CekOut.aspx.cs">
       <DependentUpon>CekOut.aspx</DependentUpon>

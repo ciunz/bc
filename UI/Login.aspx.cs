@@ -13,9 +13,7 @@ namespace UI
         protected void Page_Load(object sender, EventArgs e)
         {
             if (Session["username"] != null && Session["lvl"] != null)
-            {
-                Response.Redirect("/home.aspx");
-            }
+            { Response.Redirect("/home.aspx"); }
         }
 
         protected void Button1_Click1(object sender, EventArgs e)

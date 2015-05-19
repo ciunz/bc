@@ -26,7 +26,7 @@ namespace UI
             {
                 texthtml += "<div class='grid1_of_3'>";
                 texthtml += "<a href='/Program/details.aspx?id=" + b.idProgram + "'>";
-                texthtml += "<div class='gambar'><img style='margin:auto;' src='/images/" + b.img + "' alt=''/></div>";
+                texthtml += "<div class='gambar'><img style='margin:auto;' src='/images/ProgramImg/" + b.img + "' alt=''/></div>";
                 texthtml += "<h3>" + b.title + "</h3>";
                 int g = b.descr.Length;
                 if (g >= 35)
@@ -49,7 +49,8 @@ namespace UI
             //pagination
 
             int i = 1;
-            int k = (bal.GetProgramList().Count % perPage) != 0 ? 0 : 1; 
+            int k = (bal.GetProgramList().Count % perPage) != 0 ? 0 : 1;
+            k = bal.GetProgramList().Count == perPage ? 0 : 1;
             int j = (bal.GetProgramList().Count/perPage)+k;           
             do
             {

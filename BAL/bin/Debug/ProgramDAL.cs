@@ -36,10 +36,8 @@ namespace DAL
             var hasil = (from baris in db.MsPrograms
                          where baris.idProgram == id
                          select baris).SingleOrDefault();
-
             return hasil;
         }
-
 
         public bool UpdateProgram(MsProgram pro)
         {
@@ -64,13 +62,12 @@ namespace DAL
                 try
                 { db.SubmitChanges(); return true; }
                 catch
-                { return false; }
+               { return false; }
 
             }
             else
             { return false; }
         }
-
 
         public bool DeleteProgram(string id)
         {
@@ -115,6 +112,14 @@ namespace DAL
                        where baris.technology == tech
                        select baris;
             return cari.ToList();
+        }
+        public bool CekProgram(string id)
+        {
+            dbDataContext db = new dbDataContext();
+            var cari = (from baris in db.MsPrograms
+                       where baris.idProgram == id
+                       select baris).SingleOrDefault();
+            return (cari == null) ? false : true;
         }
 
     }

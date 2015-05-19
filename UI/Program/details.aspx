@@ -31,7 +31,13 @@
                                 <p id="keterangan" runat="server">
                                     Empty</p>
                                 <h5 runat="server" id="ukuran">
-                                    Empty <a href="#">Add to Cart</a></h5>
+                                    </h5>
+                                    <p runat="server" id="OS">OS : 
+                                    </p>
+                                    <p runat="server" id="License">License : 
+                                    </p>
+                                    <p runat="server" id="Tec">Technology : 
+                                    </p>
                                 <div class="available">
                                     <h4>
                                         Available Options :</h4>
@@ -96,32 +102,19 @@
 					
 			        <div class="content">
 				        <div class="content-1">
-				        	<p class="para top" runat="server" id="descr"><span>LOREM IPSUM</span> </p>
+				        	<p class="para top" runat="server" id="comment"><span>Comment</span> </p>
                             
-                            <ul>
-								<li>Research</li>
-								<li>Design and Development</li>
-								<li>Porting and Optimization</li>
-								<li>System integration</li>
-								<li>Verification, Validation and Testing</li>
-								<li>Maintenance and Support</li>
+                            <ul class="qua_nav" runat="server" id="ra">
 							</ul>
 							<div class="clear"></div>
 						</div>
 				        <div class="content-2">
-							<p class="para" runat="server" id="rating"><span>WELCOME </span></p>
-                            <ul class="qua_nav">
-								<li runat="server" id="ra"></li>
-							</ul>
+							<p style="font-size:xx-large" class="para" runat="server" id="rating"></p>
                             <div class="clear"></div>
                       </div>
                       <div class="content-3">
-							<p class="para" runat="server" id="P1"><span>WELCOME </span></p>
-                            <ul class="qua_nav">
-								<li>Multimedia Systems</li>
-								<li>Digital media adapters</li>
-								<li>Set top boxes for HDTV and IPTV Player applications on various Operating Systems and Hardware Platforms</li>
-							</ul>
+							<p class="para" runat="server" id="descr"></p>
+
                             <div class="clear"></div>
                       </div>			       
 			        </div>

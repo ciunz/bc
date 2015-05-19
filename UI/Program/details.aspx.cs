@@ -22,14 +22,21 @@ namespace UI
             //ambil keterangan program
             ProgramBAL probal = new ProgramBAL();
             MsProgramBAL b = new MsProgramBAL();
+
+            if (!probal.CekProgram(id))
+            { Session["msg"] = "Hacking Attempt!"; Response.Redirect("/Program/AllProgram.aspx"); } 
             b = probal.getProgramById(id);
+           
             Session["produk"] = b;
             string title = b.title;
             Label1.Text = "<h3>" + title + "</h3>";
             keterangan.InnerText = b.descr;
             ukuran.InnerText = b.size + " MB";
-            gambar.Src = "/images/" + b.img;
+            gambar.Src = "/images/ProgramImg/" + b.img;
             gambar.Alt = title;
+            OS.InnerHtml += b.os;
+            License.InnerHtml += b.license;
+            Tec.InnerHtml += b.technology;
             descr.InnerHtml += b.descr;
             rating.InnerHtml += b.rating;
             ra.InnerHtml = (b.rating.ToString().Length >= 4) ? b.rating.ToString().Substring(0, 4) : b.rating.ToString();
@@ -44,9 +51,9 @@ namespace UI
             string comment = "";
             if (mc != null)
             {
-                foreach (MsCommentBAL cb in mc)
+                foreach (MsCommentBAL cb in mc.Take(5))
                 { comment += "<li><a href='#'>&quot;" + cb.Comment + "&quot;<br>" + ubal.GetUserById(cb.idCustomer).username + "</a></li>"; }
-                komentar.InnerHtml += comment;
+                komentar.InnerHtml += comment; ra.InnerHtml = comment;
             }
             else
             { komentar.InnerHtml += "<li><a href='#'>No Comment Yet</a></li>"; }
@@ -66,8 +73,8 @@ namespace UI
             }
             order.Add(b.idProgram);
             Session["order"] = order;
-
-            Response.Redirect("AllProgram.aspx");
+            Session["msg"] = "Program Added to Cart";
+            Response.Redirect("/Program/AllProgram.aspx");
         }
 
         protected void Button2_Click(object sender, EventArgs e)

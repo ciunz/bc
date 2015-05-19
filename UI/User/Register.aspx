@@ -55,7 +55,8 @@
                                 <label>
                                     Username
                                     <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" Display="Dynamic"
-                                        ErrorMessage="Username Masih Kosong!" ControlToValidate="usrnm" ForeColor="Red">Username</asp:RequiredFieldValidator>
+                                        ErrorMessage="Username Empty" ControlToValidate="usrnm" 
+                                ForeColor="Red">Username</asp:RequiredFieldValidator>
                                 </label>
                             </span><span>
                                 <asp:TextBox ID="usrnm" CssClass="textbox" runat="server"></asp:TextBox></span>
@@ -65,10 +66,10 @@
                                 <label>
                                     Email
                             <asp:RegularExpressionValidator ID="RegularExpressionValidator2" runat="server" 
-                                ControlToValidate="mail" Display="Dynamic" ErrorMessage="Format Email Salah" 
+                                ControlToValidate="mail" Display="Dynamic" ErrorMessage="Wrong Email Format" 
                                 ForeColor="Red" 
                                 ValidationExpression="\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*"></asp:RegularExpressionValidator>
-                            </label></span> &nbsp;<span><asp:TextBox ID="mail" CssClass="textbox" runat="server"></asp:TextBox></span>
+                            </label><asp:TextBox ID="mail" CssClass="textbox" runat="server"></asp:TextBox></span>
                         </div>
                         <div>
                             <span>
@@ -79,9 +80,9 @@
                         <div>
                             <span>
                                 <label>
-                                    Alamat 
+                                    Address 
                             <asp:RequiredFieldValidator ID="RequiredFieldValidator3" runat="server" 
-                                ErrorMessage="Alamat Kosong" ControlToValidate="alamat" 
+                                ErrorMessage="Address Empty" ControlToValidate="alamat" 
                                 Display="Dynamic" ForeColor="Red"></asp:RequiredFieldValidator>
                                     </label>
                                     </span> <span>
@@ -90,24 +91,24 @@
                         <div>
                             <span>
                                 <label>
-                                    Kota</label></span> <span>
+                                    City</label></span> <span>
                                         <asp:TextBox ID="city" CssClass="textbox" runat="server"></asp:TextBox></span>
                         </div>
                         <div>
                             <span>
                                 <label>
-                                    Provinsi</label></span> <span>
+                                    Province</label></span> <span>
                                         <asp:TextBox ID="prov" CssClass="textbox" runat="server"></asp:TextBox></span>
                         </div>
                         <div>
                             <span>
                                 <label>
-                                    Kode Pos 
+                                    Postal Code 
                                     <asp:RequiredFieldValidator ID="RequiredFieldValidator4" runat="server" 
-                                ErrorMessage="Kode Pos Kosong" ControlToValidate="kdpos" Display="Dynamic" 
+                                ErrorMessage="Postal Code Empty" ControlToValidate="kdpos" Display="Dynamic" 
                                 ForeColor="Red"></asp:RequiredFieldValidator> &nbsp;
                                     <asp:RegularExpressionValidator ID="RegularExpressionValidator1" 
-                                runat="server" Display="Dynamic" ErrorMessage="Kode Pos Harus Angka" 
+                                runat="server" Display="Dynamic" ErrorMessage="Postal Code Must Numbers" 
                                 ForeColor="Red" ValidationExpression="\d{5}" ControlToValidate="kdpos"></asp:RegularExpressionValidator>
                                     </label>
                                         <asp:TextBox ID="kdpos" CssClass="textbox" runat="server"></asp:TextBox>

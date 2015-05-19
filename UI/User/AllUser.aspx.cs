@@ -31,12 +31,12 @@ namespace UI
                     //cetak
                     isi += "<div class='grid1_of_4'>";
                     isi += "<a href='details.aspx?id=" + ub.idCustomer + "'>";
-                    isi += "<img src='" + ub.img + "' alt=''/>";
+                    isi += "<img src='/images/usrImg/" + ub.img + "' alt=''/>";
                     isi += "<h4 style='color:#777777;'>" + ub.nama + "</h4>";
                     isi += "<div class='price'>";
                     isi += "<h4 style='color:#777777;'>" + ub.username + " <span>View</span></h4>";
                     isi += "</div>";
-                    isi += "<span class='b_btm'></span>";
+                    isi += "<span class='b_btm'></span><div class='clear'></div>";
                     isi += "</a>";
                     isi += "</div>";
                     counter++;
